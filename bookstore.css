@@ -172,6 +172,49 @@ header {
     color: white;
 }
 
+header .header_ul {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border-radius: 10px 0 0 10px;
+    padding: 10px 15px;
+    width: 180px;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    color: #98aaff;
+    padding: 20px;
+    text-align: center;
+}
+
+.header_ul h2 {
+    margin: 10px 0;
+}
+
+header .header_ul:hover {
+    display: block;
+}
+.header_button:hover + .header_ul,
+.header_ul {
+    display: block;
+}
+
+header .header_li {
+    border-radius: 7px;
+    width: 150px;
+    margin: 0px 5px;
+    display: inline-block;
+    padding: 20px 0;
+    border-bottom: 1px solid #98aaff;
+}
+
+header .header_li:hover {
+    background-color: #98aaff;
+    color: white;
+    cursor: pointer;
+}
+
 nav {
     position: fixed;
 
