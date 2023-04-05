@@ -192,8 +192,15 @@ nav {
 
 .nav_li {
     color: #000000;
-    margin: 10px;
+    margin-top: 5px;
     cursor: pointer;
+    padding: 5px 0;
+    width: 180px;
+    border-radius: 5px;
+}
+.nav_li:hover {
+    background-color: #78aaff;
+    color: #ffffff;
 }
 
 section {
