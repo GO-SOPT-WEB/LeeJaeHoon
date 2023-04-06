@@ -219,18 +219,47 @@ header {
 
 main {
     margin-top: 20px;
-    height: 200px;
+    height: 400px;
+    width: 250px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-
-    width: 320px;
+    position: relative;
+    right: 100px;
 }
 
 .main_ul {
+    margin: 20px;
+    height: 100px;
+    color: white;
 }
 
 .main_ul section {
     border-radius: 10px;
-    background-color: white;
+    background-color: #bd97e2;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    justify-content: center;
+}
+.main_ul li {
+    margin: 15px 0;
+}
+
+footer {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+}
+.footer_btn {
+    background-color: #bd97e2;
+    width: 80px;
+    height: 80px;
+    border-radius: 15px;
+    margin: 10px;
+    box-shadow: 1px 1px 1px 1px gray;
+}
+
+.footer_btn p {
+    color: white;
+    font-size: large;
 }
