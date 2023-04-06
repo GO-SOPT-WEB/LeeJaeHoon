@@ -216,3 +216,21 @@ header {
 .date {
     text-align: center;
 }
+
+main {
+    margin-top: 20px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    width: 320px;
+}
+
+.main_ul {
+}
+
+.main_ul section {
+    border-radius: 10px;
+    background-color: white;
+}
