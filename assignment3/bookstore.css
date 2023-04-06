@@ -170,8 +170,14 @@ header {
     align-items: center;
     background-color: #78aaff;
     color: white;
+    z-index: 1;
 }
 
+header h2 {
+    display: inline-block;
+
+    white-space: nowrap;
+}
 header .header_ul {
     display: none;
     position: absolute;
@@ -260,6 +266,7 @@ section {
 }
 .section_book {
     width: 200px;
+    min-width: 180px;
     height: 340px;
     background-color: #f2f2f2;
     margin: 0 20px 30px 20px;
@@ -280,11 +287,13 @@ section {
 }
 
 .section_book p {
+    display: inline-block;
     font-size: 0.8rem;
     white-space: nowrap;
     overflow: hidden;
     width: 120px;
     text-overflow: ellipsis;
+    line-height: 25px;
 }
 
 .section_book div {
@@ -301,10 +310,17 @@ section {
 .section_book i:hover {
     color: red;
 }
+
+article {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .book_img {
     width: 150px;
     height: 200px;
-    margin-top: 10px;
+    margin-top: 5px;
     margin-bottom: 20px;
 }
 
@@ -315,6 +331,15 @@ section {
 @media (max-width: 810px) {
     .section_ul {
         justify-content: center;
+    }
+}
+
+@media (max-width: 548px) {
+    .section_ul {
+        min-width: 220px;
+    }
+    .section_book {
+        min-width: 200px;
     }
 }
 
