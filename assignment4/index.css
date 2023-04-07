@@ -1,0 +1,265 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol,
+ul {
+    list-style: none;
+}
+blockquote,
+q {
+    quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+h1,
+h2,
+h3,
+p {
+    font-family: 'Gamja Flower', cursive;
+}
+
+h1 {
+    font-size: 2rem;
+}
+h2 {
+    font-size: 1.8rem;
+}
+h3 {
+    font-size: 1.5rem;
+}
+a {
+    text-decoration: none;
+}
+body {
+    margin: 0 auto;
+    width: 450px;
+    background-color: white;
+}
+ol,
+ul {
+    list-style: none;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+header {
+    padding: 20px 20px;
+    color: white;
+}
+
+.wrapper {
+    background: linear-gradient(to bottom, skyblue, purple);
+    border: none;
+    height: calc(var(--vh, 1vh) * 100);
+    max-width: var(--app-max-width, 768px);
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 1fr;
+    gap: 10px;
+    border: none;
+    background-color: azure;
+    border-radius: 10px;
+    padding: 10px;
+    width: 400px;
+    box-shadow: 5px 5px 5px 5px gray;
+}
+
+.day {
+    grid-row: 1;
+    font-weight: bold;
+    text-align: center;
+}
+.todo {
+    position: relative;
+    text-align: center;
+}
+
+.todo p {
+    color: white;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.todo i {
+    position: absolute;
+    top: 0;
+    left: 13px;
+    z-index: 0;
+}
+.date {
+    text-align: center;
+}
+
+main {
+    margin-top: 20px;
+    height: 400px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: relative;
+    right: 100px;
+}
+
+.main_ul {
+    margin: 20px;
+    height: 100px;
+    color: white;
+}
+
+.main_ul section {
+    border-radius: 10px;
+    background-color: #bd97e2;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    justify-content: center;
+}
+.main_ul li {
+    margin: 15px 0;
+}
+
+footer {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+}
+.footer_btn {
+    background-color: #bd97e2;
+    width: 80px;
+    height: 80px;
+    border-radius: 15px;
+    margin: 10px;
+    box-shadow: 1px 1px 1px 1px gray;
+}
+
+.footer_btn p {
+    color: white;
+    font-size: large;
+}
