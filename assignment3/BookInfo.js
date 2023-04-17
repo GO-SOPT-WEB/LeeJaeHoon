@@ -53,6 +53,10 @@ const books = [
         category: '자기개발서적',
         hashtag: '#1장만 읽어도 #도움되는 책',
         thumbup: true,
-        images: 'images/overcoming_procrastination_habits.svg',
+        image: 'images/미루는습관극복하기.svg',
     },
 ];
+
+console.log(books[7]);
+
+export default books;
