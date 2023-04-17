@@ -261,6 +261,10 @@ nav {
     color: #ffffff;
 }
 
+.nav_li * {
+    cursor: pointer;
+}
+
 section {
     margin-top: 90px;
     margin-left: 220px;
