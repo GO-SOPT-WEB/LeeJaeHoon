@@ -231,7 +231,7 @@ button {
 
 nav {
     position: fixed;
-
+    top: 80px;
     width: 200px;
     padding: 0 10px 10px 10px;
 }
@@ -265,8 +265,34 @@ nav {
     cursor: pointer;
 }
 
-section {
+.nav_filter {
     margin-top: 90px;
+    margin-left: 230px;
+    margin-right: 30px;
+    display: flex;
+    align-items: center;
+}
+.nav_filter ul {
+    display: flex;
+}
+
+.nav_filter ul li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 10px;
+    padding: 10px 5px;
+
+    border: 3px solid var(--main-pastel-blue);
+    background-color: var(--main-pastel-blue);
+    border-radius: 10px;
+
+    color: white;
+}
+
+.main_section {
+    margin-top: 20px;
     margin-left: 220px;
     margin-right: 30px;
 }

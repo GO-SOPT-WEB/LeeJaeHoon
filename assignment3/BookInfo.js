@@ -57,6 +57,4 @@ const books = [
     },
 ];
 
-console.log(books[7]);
-
 export default books;
