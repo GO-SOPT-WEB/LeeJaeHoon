@@ -339,6 +339,10 @@ nav {
     text-overflow: ellipsis;
 }
 
+.hashtag_wrapper {
+    display: flex;
+    align-items: center;
+}
 .section_book div {
     height: 70px;
     display: flex;

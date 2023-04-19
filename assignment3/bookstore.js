@@ -21,7 +21,10 @@ const renderBooks = () => {
         bookItem.classList.add('section_book', 'pulse');
         bookItem.innerHTML = `
     <header class="section_book_header"><h2>${book.title}</h2></header>
+    <span class="hashtag_wrapper">
     <p>${book.hashtag}</p>
+    <button type="button" onclick="console.log('hi')"><img src="images/plus_button.png" width="25" height="25" alt="플러스버튼"></img></button>
+    </span>
     <img class="book_img"src="${book.image}" alt="${book.title}이미지">
     <i class="fas fa-solid fa-heart"></i>
   `;
