@@ -238,10 +238,11 @@ header {
     background-color: #bd97e2;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
 }
 .main_ul li {
-    margin: 15px 5px;
+    margin: 7px 5px;
     display: flex;
     align-items: center;
 }
@@ -265,6 +266,12 @@ header {
 
     background: url('./image/heart_off.svg') no-repeat;
     background-size: contain;
+}
+
+.plusImgBtn {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
 }
 
 footer {
@@ -291,4 +298,47 @@ footer {
     justify-content: center;
 
     height: 85vh;
+}
+
+.todo_modal {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 2;
+    position: absolute;
+
+    top: 40%;
+    width: 300px;
+    height: 200px;
+
+    background-color: #f2f2f2;
+    border-radius: 10px;
+}
+
+.modalText {
+    position: relative;
+    bottom: 20px;
+}
+
+.modalBtn {
+    background-color: #bd97e2;
+    border-radius: 5px;
+    margin-top: 10px;
+    color: white;
+}
+
+.closeBtn {
+    width: 20px;
+    height: 20px;
+
+    background: url('./image/x-button.png') no-repeat;
+    background-size: 20px 20px;
+    cursor: pointer;
+
+    position: relative;
+    left: 120px;
+    bottom: 40px;
 }
