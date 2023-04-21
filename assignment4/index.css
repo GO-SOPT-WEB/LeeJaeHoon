@@ -217,10 +217,9 @@ header {
     text-align: center;
 }
 
-main {
-    margin-top: 20px;
+#main {
     height: 400px;
-    width: 250px;
+    width: 210px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -230,7 +229,7 @@ main {
 
 .main_ul {
     margin: 20px;
-    height: 100px;
+    height: 150px;
     color: white;
 }
 
@@ -242,11 +241,33 @@ main {
     justify-content: center;
 }
 .main_ul li {
-    margin: 15px 0;
+    margin: 15px 5px;
+    display: flex;
+    align-items: center;
+}
+
+/* input[class='heart_checkbox'] {
+    display: none;
+} */
+.hidden_checkbox {
+    display: none;
+}
+
+.hidden_checkbox:checked + .show_checkbox {
+    background: url('./image/heart.svg') no-repeat;
+
+    background-size: contain;
+}
+
+.show_checkbox {
+    width: 20px;
+    height: 20px;
+
+    background: url('./image/heart_off.svg') no-repeat;
+    background-size: contain;
 }
 
 footer {
-    width: 300px;
     display: flex;
     justify-content: center;
 }
@@ -264,6 +285,10 @@ footer {
     font-size: large;
 }
 
-/* i:hover {
-    color: red;
-} */
+.my_category {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 85vh;
+}

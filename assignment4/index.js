@@ -1,11 +1,16 @@
-import todolists from './Todolist.js';
+import { todolists, sum } from './Todolist.js';
 
 const calendarBtn = document.querySelector('.calendar_btn');
 calendarBtn.addEventListener('click', function () {
     console.log('버튼확인');
-    window.location.href = 'http://127.0.0.1:5500/assignment4/calendar.html';
+    location.href = 'index.html';
 });
 
+const myBtn = document.querySelector('.my_btn');
+myBtn.addEventListener('click', function () {
+    console.log('버튼확인');
+    location.href = './mycategory.html';
+});
 console.log(todolists);
 const main = document.getElementById('main');
 todolists.forEach((todolist) => {
@@ -14,15 +19,41 @@ todolists.forEach((todolist) => {
 
     const section = document.createElement('section');
     const h2 = document.createElement('h2');
+
     h2.textContent = todolist.title;
     section.appendChild(h2);
-
     ul.appendChild(section);
 
     todolist.todo.forEach((todo) => {
+        const checkLabel = document.createElement('label');
+
+        const checkInput = document.createElement('input');
+        checkInput.type = 'checkbox';
+        checkInput.classList.add('hidden_checkbox');
+
+        const heartDiv = document.createElement('div');
+        heartDiv.classList.add('show_checkbox');
+
+        const span = document.createElement('span');
+        span.classList.add('todo__span');
+        span.textContent = todo;
+
         const li = document.createElement('li');
-        li.textContent = todo;
+
+        li.appendChild(checkLabel);
+        checkLabel.appendChild(checkInput);
+        checkLabel.appendChild(heartDiv);
+        checkLabel.appendChild(span);
+
+        li.append(span);
         ul.appendChild(li);
+
+        checkInput.addEventListener('change', () => {
+            const checkedCount = sum - document.querySelectorAll('.hidden_checkbox:checked').length;
+            let todoCount = document.querySelector('.todoCount');
+            todoCount.textContent = checkedCount;
+            console.log(`현재 ${checkedCount}개가 체크되었습니다.`);
+        });
     });
     main.appendChild(ul);
 });
