@@ -15,9 +15,6 @@ const checkNovel = document.querySelector('.novel');
 let filterBook = [];
 
 const renderBooks = () => {
-    console.log('render books!!!');
-    const aaa = 'hi';
-
     filterBook.forEach((book) => {
         const bookItem = document.createElement('li');
         bookItem.classList.add('section_book', 'pulse');
@@ -36,7 +33,6 @@ const renderBooks = () => {
         const closeBtn = bookItem.querySelector('.closeBtn');
 
         hashPlusButton.addEventListener('click', (e) => {
-            console.log('click');
             e.preventDefault();
             modal.style.display = 'flex';
         });
@@ -60,23 +56,14 @@ const renderBooks = () => {
 };
 
 const removeCategory = (categoryName, nav_category) => {
-    console.log('removeCategory호출');
-    console.log(JSON.stringify(nav_categories) + 'navcategory출력');
-
     const p = nav_category.querySelector('p');
-
-    console.log(p.textContent);
-    console.log(categoryName);
     if (p.textContent === categoryName) {
         nav_category.remove();
         const index = checkedCategory.indexOf(categoryName);
         if (index !== -1) {
             checkedCategory.splice(index, 1);
-            console.log('category출력' + checkedCategory);
         }
         filterBooks(checkedCategory);
-        console.log('필터북 이후 :' + filterBook);
-        // renderBooks(filterBook);
     }
 
     if (categoryName === '전체') {
@@ -90,14 +77,10 @@ const removeCategory = (categoryName, nav_category) => {
     }
 
     console.log('category출력' + checkedCategory);
-    // });
 };
 
 const renderCategory = (checkedCategory) => {
-    console.log('renderCategory' + checkedCategory);
-
     checkedCategory.forEach((categoryName) => {
-        console.log('실행테스트');
         const nav_category = document.createElement('li');
 
         nav_category.classList.add('nav_category');
@@ -113,24 +96,17 @@ const renderCategory = (checkedCategory) => {
 };
 
 const filterBooks = (category) => {
-    console.log('필터북 호출');
-    console.log(category);
     while (bookList.firstChild) {
         bookList.removeChild(bookList.firstChild);
     }
 
-    console.log('first' + JSON.stringify(category));
-    console.log(typeof category);
-
     if (category.length === 0) {
-        console.log('render 2');
         while (bookList.firstChild) {
             bookList.removeChild(bookList.firstChild);
         }
         filterBook = [];
         renderBooks(filterBook);
     } else {
-        console.log(category.length);
         let all = false;
         for (let i = 0; i < category.length; i++) {
             if (category[i] === '전체') {
@@ -146,8 +122,6 @@ const filterBooks = (category) => {
                 renderBooks(filterBook);
             }
         }
-
-        console.log(category, '카테고리!');
     }
 };
 
@@ -159,10 +133,8 @@ checkboxes.forEach((checkbox) => {
         //카테고리 삭제함수를 추가하지 않으면 전에 렌더링한게 남아있어서
         //이렇게 처리했는데 더 좋은 처리방법이 있다면 공유해주세요!
 
-        console.log('checkbox change event!!');
         if (checkbox.checked) {
             checkedCategory.push(checkbox.getAttribute('id'));
-            console.log('체크됨!' + checkbox.getAttribute('id'));
             renderCategory(checkedCategory);
         } else {
             const index = checkedCategory.indexOf(checkbox.getAttribute('id'));
@@ -181,21 +153,7 @@ checkboxes.forEach((checkbox) => {
 });
 
 const removeCategoryNode = (categoryList) => {
-    console.log('removeCategory호출' + categoryList);
     while (categoryList.firstChild) {
         categoryList.removeChild(categoryList.firstChild);
     }
 };
-
-// }
-// filterBook.forEach((book) => {
-//     const bookItem = document.createElement('li');
-//     bookItem.classList.add('section_book', 'pulse');
-//     bookItem.innerHTML = `
-// <header class="section_book_header"><h2>${book.title}</h2></header>
-// <p>#${book.hashtag}</p>
-// <img class="book_img"src="${book.image}" alt="${book.title}이미지">
-// <i class="fas fa-solid fa-heart"></i>
-// `;
-//     bookList.appendChild(bookItem);
-// });
