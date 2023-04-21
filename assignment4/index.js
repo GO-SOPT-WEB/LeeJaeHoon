@@ -1,4 +1,12 @@
-import { todolists, sum } from './Todolist.js';
+import todolists from './Todolist.js';
+
+const countTodolist = () => {
+    let sum = 0;
+    todolists.forEach((todoL) => {
+        sum += todoL.todo.length;
+    });
+    return sum;
+};
 
 const calendarBtn = document.querySelector('.calendar_btn');
 calendarBtn.addEventListener('click', function () {
@@ -11,6 +19,7 @@ myBtn.addEventListener('click', function () {
     console.log('버튼확인');
     location.href = './mycategory.html';
 });
+
 console.log(todolists);
 const main = document.getElementById('main');
 todolists.forEach((todolist) => {
@@ -49,7 +58,7 @@ todolists.forEach((todolist) => {
         ul.appendChild(li);
 
         checkInput.addEventListener('change', () => {
-            const checkedCount = sum - document.querySelectorAll('.hidden_checkbox:checked').length;
+            const checkedCount = countTodolist() - document.querySelectorAll('.hidden_checkbox:checked').length;
             let todoCount = document.querySelector('.todoCount');
             todoCount.textContent = checkedCount;
             console.log(`현재 ${checkedCount}개가 체크되었습니다.`);

@@ -5,9 +5,4 @@ const todolists = [
     { title: '운동', todo: ['주4회 웨이트', '농구', '러닝'] },
 ];
 
-let sum = 0;
-todolists.forEach((todoL) => {
-    sum += todoL.todo.length;
-});
-
-export { todolists, sum };
+export default todolists;
