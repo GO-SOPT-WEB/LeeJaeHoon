@@ -23,41 +23,46 @@ const renderBooks = () => {
         bookItem.classList.add('section_book', 'pulse');
         bookItem.innerHTML = `
     <header class="section_book_header"><h2>${book.title}</h2></header>
-    <div class="modal">${book.hashtag}</div>
+    <div class="modal"><p class="modalHash">${book.hashtag}</p> <button class="closeBtn"><img src="images/x-button.png"  width="10" height="10"alt="닫기버튼"></img></button></div>
     <span class="hashtag_wrapper">
-    <p>${book.hashtag}</p>
+    <p class="hideHash">${book.hashtag}</p>
     <button type="button" class="hashPlusButton"><img src="images/plus_button.png" width="25" height="25" alt="플러스버튼"></img></button>
     </span>
     <img class="book_img"src="${book.image}" alt="${book.title}이미지">
     <i class="fas fa-solid fa-heart"></i>
   `;
         const hashPlusButton = bookItem.querySelector('.hashPlusButton');
+        const modal = bookItem.querySelector('.modal');
+        const closeBtn = bookItem.querySelector('.closeBtn');
+
         hashPlusButton.addEventListener('click', (e) => {
             console.log('click');
             e.preventDefault();
-
-            const modal = bookItem.querySelector('.modal');
-            modal.style.display = 'block';
+            modal.style.display = 'flex';
         });
 
+        // 모달 닫기 버튼에 클릭 이벤트 추가
+        closeBtn.addEventListener('click', () => {
+            // 모달 숨기기
+            modal.style.display = 'none';
+        });
+
+        // 모달 외부 클릭 시 모달 숨기기
+        window.addEventListener('click', (e) => {
+            console.log('출력?' + JSON.stringify(e.target));
+
+            if (e.target == modal) {
+                modal.style.display = 'none';
+            }
+        });
         bookList.appendChild(bookItem);
     });
 };
 
-// function onRemoveButtonClick(e) {
-//     const category = e.target.parentNode.dataset.category;
-//     checkedCategory.splice(checkedCategory.indexOf(category), 1);
-//     removeCategoryNode(category);
-//   }
-
-// const nav_category_btn=document.querySelector()
-
 const removeCategory = (categoryName, nav_category) => {
     console.log('removeCategory호출');
     console.log(JSON.stringify(nav_categories) + 'navcategory출력');
-    //category_nav_node삭제
 
-    // nav_categories.forEach((nav_category) => {
     const p = nav_category.querySelector('p');
 
     console.log(p.textContent);
