@@ -2,8 +2,6 @@ import BookInfo from './BookInfo.js';
 
 const bookList = document.querySelector('.section_ul');
 const categoryList = document.querySelector('.category_list');
-const nav_categories = document.querySelectorAll('.category_list');
-const vv = 'vv';
 
 const checkedCategory = [];
 const checkboxes = document.querySelectorAll('.check_category');
@@ -14,6 +12,7 @@ const checkNovel = document.querySelector('.novel');
 
 let filterBook = [];
 
+//filterBook을 렌더링하는 함수
 const renderBooks = () => {
     filterBook.forEach((book) => {
         const bookItem = document.createElement('li');
@@ -28,6 +27,7 @@ const renderBooks = () => {
     <img class="book_img"src="${book.image}" alt="${book.title}이미지">
     <i class="fas fa-solid fa-heart"></i>
   `;
+
         const hashPlusButton = bookItem.querySelector('.hashPlusButton');
         const modal = bookItem.querySelector('.modal');
         const closeBtn = bookItem.querySelector('.closeBtn');
@@ -43,18 +43,11 @@ const renderBooks = () => {
             modal.style.display = 'none';
         });
 
-        // 모달 외부 클릭 시 모달 숨기기
-        window.addEventListener('click', (e) => {
-            console.log('출력?' + JSON.stringify(e.target));
-
-            if (e.target == modal) {
-                modal.style.display = 'none';
-            }
-        });
         bookList.appendChild(bookItem);
     });
 };
 
+//상단 카테고리 리스트를 삭제하는 함수
 const removeCategory = (categoryName, nav_category) => {
     const p = nav_category.querySelector('p');
     if (p.textContent === categoryName) {
@@ -75,10 +68,9 @@ const removeCategory = (categoryName, nav_category) => {
     } else if (categoryName === '소설') {
         checkNovel.checked = false;
     }
-
-    console.log('category출력' + checkedCategory);
 };
 
+//상단에 카테고리를 나열하는 함수
 const renderCategory = (checkedCategory) => {
     checkedCategory.forEach((categoryName) => {
         const nav_category = document.createElement('li');
@@ -95,6 +87,7 @@ const renderCategory = (checkedCategory) => {
     });
 };
 
+//category별로 book을 필터링하고 렌더하는 함수
 const filterBooks = (category) => {
     while (bookList.firstChild) {
         bookList.removeChild(bookList.firstChild);
@@ -105,13 +98,13 @@ const filterBooks = (category) => {
             bookList.removeChild(bookList.firstChild);
         }
         filterBook = [];
-        renderBooks(filterBook);
+        renderBooks();
     } else {
         let all = false;
         for (let i = 0; i < category.length; i++) {
             if (category[i] === '전체') {
                 filterBook = BookInfo;
-                renderBooks(filterBook);
+                renderBooks();
                 all = true;
                 break;
             }
@@ -119,19 +112,18 @@ const filterBooks = (category) => {
         if (all === false) {
             for (let i = 0; i < category.length; i++) {
                 filterBook = BookInfo.filter((book) => book.category === category[i]);
-                renderBooks(filterBook);
+                renderBooks();
             }
         }
     }
 };
 
+//체크박스 변경시 카테고리 리스트를 렌더하고 book을 렌더하는 로직
 checkboxes.forEach((checkbox) => {
     checkbox.addEventListener('change', () => {
         while (categoryList.firstChild) {
             categoryList.removeChild(categoryList.firstChild);
         }
-        //카테고리 삭제함수를 추가하지 않으면 전에 렌더링한게 남아있어서
-        //이렇게 처리했는데 더 좋은 처리방법이 있다면 공유해주세요!
 
         if (checkbox.checked) {
             checkedCategory.push(checkbox.getAttribute('id'));
@@ -151,9 +143,3 @@ checkboxes.forEach((checkbox) => {
         }
     });
 });
-
-const removeCategoryNode = (categoryList) => {
-    while (categoryList.firstChild) {
-        categoryList.removeChild(categoryList.firstChild);
-    }
-};
