@@ -12,13 +12,11 @@ const countTodolist = () => {
 //footer 버튼 click event
 const calendarBtn = document.querySelector('.calendar_btn');
 calendarBtn.addEventListener('click', function () {
-    console.log('버튼확인');
     location.href = 'index.html';
 });
 
 const myBtn = document.querySelector('.my_btn');
 myBtn.addEventListener('click', function () {
-    console.log('버튼확인');
     location.href = './mycategory.html';
 });
 
@@ -45,7 +43,6 @@ const createModal = (todolist) => {
     modal.appendChild(modalContent);
     modal.appendChild(modalInput);
     modal.appendChild(modalBtn);
-
     wrapper.appendChild(modal);
 
     closeBtn.addEventListener('click', () => {
@@ -56,6 +53,13 @@ const createModal = (todolist) => {
         todolist.push(modalInput.value);
         relenderTodoList();
         modal.style.display = 'none';
+    });
+
+    modalInput.addEventListener('keyup', function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.querySelector('.modalBtn').click();
+        }
     });
 };
 
@@ -91,6 +95,7 @@ const createTodoList = () => {
         section.appendChild(plusImg);
 
         ul.appendChild(section);
+
         plusImg.addEventListener('click', () => {
             createModal(todolist.todo);
         });
