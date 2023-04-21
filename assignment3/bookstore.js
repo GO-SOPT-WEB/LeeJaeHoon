@@ -16,18 +16,30 @@ let filterBook = [];
 
 const renderBooks = () => {
     console.log('render books!!!');
+    const aaa = 'hi';
+
     filterBook.forEach((book) => {
         const bookItem = document.createElement('li');
         bookItem.classList.add('section_book', 'pulse');
         bookItem.innerHTML = `
     <header class="section_book_header"><h2>${book.title}</h2></header>
+    <div class="modal">${book.hashtag}</div>
     <span class="hashtag_wrapper">
     <p>${book.hashtag}</p>
-    <button type="button" onclick="console.log('hi')"><img src="images/plus_button.png" width="25" height="25" alt="플러스버튼"></img></button>
+    <button type="button" class="hashPlusButton"><img src="images/plus_button.png" width="25" height="25" alt="플러스버튼"></img></button>
     </span>
     <img class="book_img"src="${book.image}" alt="${book.title}이미지">
     <i class="fas fa-solid fa-heart"></i>
   `;
+        const hashPlusButton = bookItem.querySelector('.hashPlusButton');
+        hashPlusButton.addEventListener('click', (e) => {
+            console.log('click');
+            e.preventDefault();
+
+            const modal = bookItem.querySelector('.modal');
+            modal.style.display = 'block';
+        });
+
         bookList.appendChild(bookItem);
     });
 };
