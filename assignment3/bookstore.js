@@ -152,6 +152,7 @@ checkboxes.forEach((checkbox) => {
             if (index !== -1) {
                 checkedCategory.splice(index, 1);
             }
+            renderCategory(checkedCategory);
         }
 
         if (checkedCategory.length === 0) {
