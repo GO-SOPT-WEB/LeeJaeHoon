@@ -1,10 +1,10 @@
-import todolists from './Todolist.js';
+import TODOLISTS from './Todolist.js';
 
 //todoList의 개수를 세는 함수
 const countTodolist = () => {
     let sum = 0;
-    todolists.forEach((todoL) => {
-        sum += todoL.todo.length;
+    TODOLISTS.forEach(({ todo }) => {
+        sum += todo.length;
     });
     return sum;
 };
@@ -80,7 +80,7 @@ const relenderTodoList = () => {
 
 //todoList 렌더함수
 const createTodoList = () => {
-    todolists.forEach((todolist) => {
+    TODOLISTS.forEach((todolist) => {
         const ul = document.createElement('ul');
         ul.classList.add('main_ul');
 
@@ -128,7 +128,6 @@ const createTodoList = () => {
                 const checkedCount = countTodolist() - document.querySelectorAll('.hidden_checkbox:checked').length;
                 let todoCount = document.querySelector('.todoCount');
                 todoCount.textContent = checkedCount;
-                console.log(`현재 ${checkedCount}개의 일이 남았습니다.`);
             });
         });
         main.appendChild(ul);
