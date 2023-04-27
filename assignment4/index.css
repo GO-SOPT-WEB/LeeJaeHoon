@@ -217,10 +217,9 @@ header {
     text-align: center;
 }
 
-main {
-    margin-top: 20px;
+#main {
     height: 400px;
-    width: 250px;
+    width: 210px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -230,7 +229,7 @@ main {
 
 .main_ul {
     margin: 20px;
-    height: 100px;
+    height: 150px;
     color: white;
 }
 
@@ -239,14 +238,43 @@ main {
     background-color: #bd97e2;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
 }
 .main_ul li {
-    margin: 15px 0;
+    margin: 7px 5px;
+    display: flex;
+    align-items: center;
+}
+
+/* input[class='heart_checkbox'] {
+    display: none;
+} */
+.hidden_checkbox {
+    display: none;
+}
+
+.hidden_checkbox:checked + .show_checkbox {
+    background: url('./image/heart.svg') no-repeat;
+
+    background-size: contain;
+}
+
+.show_checkbox {
+    width: 20px;
+    height: 20px;
+
+    background: url('./image/heart_off.svg') no-repeat;
+    background-size: contain;
+}
+
+.plusImgBtn {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
 }
 
 footer {
-    width: 300px;
     display: flex;
     justify-content: center;
 }
@@ -262,4 +290,55 @@ footer {
 .footer_btn p {
     color: white;
     font-size: large;
+}
+
+.my_category {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 85vh;
+}
+
+.todo_modal {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 2;
+    position: absolute;
+
+    top: 40%;
+    width: 300px;
+    height: 200px;
+
+    background-color: #f2f2f2;
+    border-radius: 10px;
+}
+
+.modalText {
+    position: relative;
+    bottom: 20px;
+}
+
+.modalBtn {
+    background-color: #bd97e2;
+    border-radius: 5px;
+    margin-top: 10px;
+    color: white;
+}
+
+.closeBtn {
+    width: 20px;
+    height: 20px;
+
+    background: url('./image/x-button.png') no-repeat;
+    background-size: 20px 20px;
+    cursor: pointer;
+
+    position: relative;
+    left: 120px;
+    bottom: 40px;
 }
