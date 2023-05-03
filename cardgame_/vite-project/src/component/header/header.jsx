@@ -1,7 +1,14 @@
 import React from "react";
-import { HeaderWrapper } from "./header.style";
-const Header = () => {
-  return <HeaderWrapper>라이언 일병 맞추기</HeaderWrapper>;
+import { HeaderWrapper, MainText, SubText } from "./header.style";
+const Header = ({ correct, EA }) => {
+  return (
+    <HeaderWrapper>
+      <MainText>라이언 일병 맞추기</MainText>
+      <SubText>
+        {correct} / {EA}
+      </SubText>
+    </HeaderWrapper>
+  );
 };
 
 export default Header;
