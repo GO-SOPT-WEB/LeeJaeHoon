@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Header from "./component/header/Header";
 import CardList from "./component/cardList/CardList";
@@ -8,11 +8,23 @@ import "./App.css";
 
 function App() {
   const [count, setCount] = useState(0);
+  const [all, setAll] = useState(5);
+  useEffect(() => {
+    console.log(count);
+  }, [count]);
 
+  const setCounting = () => {
+    setCount(count + 1);
+  };
   return (
     <>
-      <Header correct={2} EA={5}></Header>
-      <Main></Main>
+      <Header correct={count} EA={all}></Header>
+      <Main
+        correct={count}
+        countCorrect={setCounting}
+        all={all}
+        setAll={setAll}
+      ></Main>
     </>
   );
 }

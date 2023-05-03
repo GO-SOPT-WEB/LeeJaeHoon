@@ -5,7 +5,7 @@ import CardList from "./../cardList/CardList";
 import Nav from "./../nav/Nav";
 
 import { useState } from "react";
-const Main = () => {
+const Main = ({ correct, countCorrect }) => {
   const [difficulty, setDifficulty] = useState("Easy");
   const [score, setScore] = useState(0);
   const [cardId, setCardId] = useState(-1);
@@ -20,6 +20,9 @@ const Main = () => {
     if (selectTwoCard.length < 2) {
       selectTwoCard.push(id);
       console.log(selectTwoCard);
+      if (selectTwoCard[0] === selectTwoCard[1]) {
+        countCorrect();
+      }
     }
   };
   return (
