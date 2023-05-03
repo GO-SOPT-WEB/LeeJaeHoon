@@ -1,8 +1,10 @@
+import { CardWrapper, CardImg } from "./cardItem.style";
+
 const Card = ({ title, src }) => {
   return (
-    <div>
-      <img src={src} alt={title} />
-    </div>
+    <CardWrapper>
+      <CardImg src={src} alt={title} />
+    </CardWrapper>
   );
 };
 
