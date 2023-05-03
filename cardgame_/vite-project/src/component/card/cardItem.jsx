@@ -1,9 +1,30 @@
-import { CardWrapper, CardImg } from "./cardItem.style";
+import { useState } from "react";
+import {
+  CardWrapper,
+  CardImg,
+  CardInner,
+  CardFront,
+  CardBack,
+  CardBackImg,
+} from "./cardItem.style";
 
-const Card = ({ title, src }) => {
+const Card = ({ src }) => {
+  const [flip, setFlip] = useState(false);
+  console.log(src);
+  const handleClick = () => {
+    setFlip((current) => !current);
+  };
+
   return (
-    <CardWrapper>
-      <CardImg src={src} alt={title} />
+    <CardWrapper onClick={handleClick}>
+      <CardInner flip={flip}>
+        <CardBack>
+          <CardBackImg></CardBackImg>
+        </CardBack>
+        <CardFront>
+          <CardImg src={src}></CardImg>
+        </CardFront>
+      </CardInner>
     </CardWrapper>
   );
 };

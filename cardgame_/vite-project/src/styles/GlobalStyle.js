@@ -56,15 +56,17 @@ table {
 
 html, body {
   height: 100%;
-  font-family: 'KCC-Ganpan'
+  font-family: 'KCC-Ganpan';
+
 }
 body {
   background-color: ${(props) => props.theme.colors.mainLightGrey};
   margin: 0 auto;
 }
-#root{
+/* #root{
     background-color: ${(props) => props.theme.colors.mainLightGrey};
-}
+    margin: 0 auto;
+  } */
 a {
   text-decoration: none;
   color:inherit;

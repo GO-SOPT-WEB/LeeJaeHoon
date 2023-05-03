@@ -7,14 +7,12 @@ const colors = {
 };
 
 const fontSize = {
-  xxxs: "0.5rem", // 8
-  xxs: "0.625rem", // 10
-  xs: "0.75rem", // 12
-  sm: "0.875rem", // 14
-  md: "1rem", // 16
-  lg: "1.5rem", //
-  xl: "1.75rem",
-  xxl: "2rem",
+  xs: "1rem", // 16
+  sm: "1.5rem", //
+  md: "1.75rem",
+  lg: "2rem",
+  xl: "3rem",
+  xxl: "4rem",
 };
 
 export const theme = {

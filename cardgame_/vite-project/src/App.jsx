@@ -8,6 +8,7 @@ import styled from "styled-components";
 const CardListWrapper = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 800px;
   height: 300px;
 
@@ -19,10 +20,10 @@ function App() {
 
   return (
     <>
-      <Header></Header>
+      <Header correct={2} EA={5}></Header>
       <CardListWrapper>
         {DATA.map((card) => (
-          <Card key={card.title} title={card.title} src={card.src}></Card>
+          <Card key={card.title} src={card.src}></Card>
         ))}
       </CardListWrapper>
     </>
