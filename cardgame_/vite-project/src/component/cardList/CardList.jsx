@@ -5,7 +5,7 @@ import CardItem from "../cardItem/CardItem";
 import { doubleArray } from "./../../utils/doubleArray";
 
 import { CardListWrapper, CardItmeList } from "./CardList.style";
-const CardList = ({ difficulty, onClick }) => {
+const CardList = ({ difficulty, onClick, cardFilp }) => {
   console.log(doubleArray(DATA.slice(0, 5)));
   return (
     <CardListWrapper>
@@ -18,6 +18,7 @@ const CardList = ({ difficulty, onClick }) => {
                 src={card.src}
                 id={card.id}
                 onClick={onClick}
+                cardFilp={cardFilp}
               ></CardItem>
             );
           })}
@@ -32,6 +33,7 @@ const CardList = ({ difficulty, onClick }) => {
                 src={card.src}
                 id={card.id}
                 onClick={onClick}
+                cardFilp={cardFilp}
               ></CardItem>
             );
           })}
@@ -46,6 +48,7 @@ const CardList = ({ difficulty, onClick }) => {
                 src={card.src}
                 id={card.id}
                 onClick={onClick}
+                cardFilp={cardFilp}
               ></CardItem>
             );
           })}
