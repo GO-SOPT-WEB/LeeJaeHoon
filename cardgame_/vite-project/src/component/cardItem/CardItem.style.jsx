@@ -3,15 +3,15 @@ import styled from "styled-components";
 export const CardWrapper = styled.main`
   display: inline-block;
   width: 200px;
-  height: 250px;
+  height: 230px;
 
-  perspective: 300px;
+  perspective: 1000px;
 `;
 
 export const CardInner = styled.section`
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 95%;
+  height: 95%;
   text-align: center;
 
   transition: transform 0.8s;
@@ -38,20 +38,23 @@ export const CardFront = styled(CardFrontBack)`
 `;
 
 export const CardBack = styled(CardFrontBack)`
-  /* background-color: ${(props) =>
-    props.theme.colors && props.theme.colors.mainPurple}; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 export const CardImg = styled.img`
-  width: 180px;
-  height: 240px;
+  width: 100%;
+  height: 100%;
   border-radius: 20px;
-  padding: 10px;
+  padding: 1.5rem;
 `;
 
 export const CardBackImg = styled.img`
-  width: 190px;
-  height: 250px;
+  width: 100%;
+  height: 100%;
   background-image: url("src/assets/cardBackImg4.png");
+
+  object-fit: contain;
   background-size: cover;
   border-radius: 20px;
 `;

@@ -10,7 +10,7 @@ import {
 
 const Card = ({ src }) => {
   const [flip, setFlip] = useState(false);
-  console.log(src);
+
   const handleClick = () => {
     setFlip((current) => !current);
   };
