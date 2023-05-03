@@ -31,8 +31,8 @@ export const DATA = [
   },
   {
     id: 6,
-    title: "부끄러운 라이언",
-    src: "https://i.pinimg.com/originals/6f/39/f0/6f39f0bbe37c1faf827bc78b221096c9.gif",
+    title: "귀여운 라이언",
+    src: "https://i.pinimg.com/originals/ba/c3/06/bac306067bc9aae85dcfb6f05ab06cb7.gif",
     success: false,
   },
   {
