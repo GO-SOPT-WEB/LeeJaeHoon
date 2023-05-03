@@ -1,5 +1,5 @@
 import React from "react";
-import { HeaderWrapper, MainText, SubText } from "./header.style";
+import { HeaderWrapper, MainText, SubText } from "./Header.style";
 const Header = ({ correct, EA }) => {
   return (
     <HeaderWrapper>
