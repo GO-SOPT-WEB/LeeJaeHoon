@@ -7,7 +7,7 @@ export const NavWrapper = styled.nav`
 
   width: 30rem;
   gap: 0.5rem;
-  padding: 3rem;
+  padding: 1rem;
 `;
 
 export const DifficultyButton = styled.button`
