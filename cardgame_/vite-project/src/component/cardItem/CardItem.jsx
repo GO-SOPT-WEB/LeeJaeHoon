@@ -8,18 +8,22 @@ import {
   CardBackImg,
 } from "./CardItem.style";
 
-const Card = ({ src }) => {
+const Card = ({ src, id, onClick }) => {
   const [flip, setFlip] = useState(false);
 
   const handleClick = () => {
-    setFlip((current) => !current);
+    setFlip(true);
   };
 
   return (
     <CardWrapper onClick={handleClick}>
       <CardInner flip={flip}>
         <CardBack>
-          <CardBackImg></CardBackImg>
+          <CardBackImg
+            onClick={() => {
+              onClick(id);
+            }}
+          ></CardBackImg>
         </CardBack>
         <CardFront>
           <CardImg src={src}></CardImg>
