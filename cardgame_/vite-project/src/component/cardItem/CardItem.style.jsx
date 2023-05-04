@@ -5,7 +5,7 @@ export const CardWrapper = styled.main`
   width: 200px;
   height: 230px;
 
-  perspective: 1000px;
+  perspective: 550rem;
 `;
 
 export const CardInner = styled.section`
