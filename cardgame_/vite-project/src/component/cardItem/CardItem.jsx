@@ -11,16 +11,16 @@ import {
 const Card = ({
   src,
   id,
-  onClick,
   selectTwoCard,
-  setSelectTwoCard,
   correct,
   setCorrect,
   wrongTwoCard,
   handleWrongTwoCard,
+  delay,
+  setDelay,
 }) => {
   const [flip, setFlip] = useState(false);
-  const [clickDisabled, setClickDisabled] = useState(true);
+
   useEffect(() => {
     if (wrongTwoCard.length === 2) {
       wrongTwoCard.forEach((cardId) => {
@@ -35,34 +35,28 @@ const Card = ({
     }
   }, [wrongTwoCard]);
 
-  // useEffect(() => {
-  //   if (selectTwoCard.length === 2) {
-  //     console.log("이게 찍히나?");
-  //     setClickDisabled(true);
-  //     setTimeout(() => {
-  //       setClickDisabled(false);
-  //     }, 1000);
-  //   }
-  // }, [selectTwoCard]);
-
-  const handleClick = (id) => {
-    // if (clickDisabled) {
-    //   setTimeout(() => {
-    //     setClickDisabled(false);
-    //   }, 1000);
-    // }
+  useEffect(() => {
+    setDelay(false);
+    return () => {};
+  }, [selectTwoCard]);
+  const handleClick = () => {
     setFlip(true);
     if (selectTwoCard.length < 2) {
       selectTwoCard.push(id);
-
+      console.log(selectTwoCard);
       if (selectTwoCard.length === 2) {
+        setDelay(true);
         if (selectTwoCard[0] === selectTwoCard[1]) {
           setCorrect(correct + 1);
         }
         if (selectTwoCard[0] !== selectTwoCard[1]) {
           handleWrongTwoCard(selectTwoCard);
         }
+
         selectTwoCard.splice(0, selectTwoCard.length);
+        setTimeout(() => {
+          setDelay(false);
+        }, 1000);
       }
     }
 
@@ -70,7 +64,7 @@ const Card = ({
   };
 
   return (
-    <CardWrapper onClick={() => handleClick(id)}>
+    <CardWrapper onClick={delay ? null : handleClick}>
       <CardInner flip={flip}>
         <CardBack>
           <CardBackImg></CardBackImg>

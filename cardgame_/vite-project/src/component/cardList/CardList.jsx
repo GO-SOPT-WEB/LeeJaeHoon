@@ -14,12 +14,20 @@ const CardList = ({
   // setCardFlip,
 }) => {
   const [wrongTwoCard, setWrongTwoCard] = useState([]);
-  let selectTwoCard = [];
-  console.log(selectTwoCard);
+  const [selectTwoCard, setSelectTwoCard] = useState([]);
+
   const handleWrongTwoCard = (arr) => {
     let temp = [...arr];
     setWrongTwoCard(temp);
   };
+
+  const handleWrongSelectCard = (i) => {
+    (prev) => {
+      return [...prev, i];
+    };
+  };
+
+  const [delay, setDelay] = useState(false);
 
   return (
     <CardListWrapper>
@@ -31,14 +39,13 @@ const CardList = ({
                 key={i}
                 src={card.src}
                 id={card.id}
-                onClick={onClick}
-                // cardFlip={cardFlip}
-                // setCardFlip={setCardFlip}
                 selectTwoCard={selectTwoCard}
                 correct={correct}
                 setCorrect={setCorrect}
                 wrongTwoCard={wrongTwoCard}
                 handleWrongTwoCard={handleWrongTwoCard}
+                delay={delay}
+                setDelay={setDelay}
               ></CardItem>
             );
           })}
@@ -52,10 +59,13 @@ const CardList = ({
                 key={i}
                 src={card.src}
                 id={card.id}
-                onClick={onClick}
-                // cardFlip={cardFlip}
-                // setCardFlip={setCardFlip}
                 selectTwoCard={selectTwoCard}
+                correct={correct}
+                setCorrect={setCorrect}
+                wrongTwoCard={wrongTwoCard}
+                handleWrongTwoCard={handleWrongTwoCard}
+                delay={delay}
+                setDelay={setDelay}
               ></CardItem>
             );
           })}
@@ -69,10 +79,13 @@ const CardList = ({
                 key={i}
                 src={card.src}
                 id={card.id}
-                onClick={onClick}
-                // cardFlip={cardFlip}
-                // setCardFlip={setCardFlip}
                 selectTwoCard={selectTwoCard}
+                correct={correct}
+                setCorrect={setCorrect}
+                wrongTwoCard={wrongTwoCard}
+                handleWrongTwoCard={handleWrongTwoCard}
+                delay={delay}
+                setDelay={setDelay}
               ></CardItem>
             );
           })}
