@@ -31,13 +31,13 @@ const CardList = ({
     () => {
       switch (difficulty) {
         case "Easy":
-          return doubleArray(shuffleArray(DATA).slice(0, 5));
+          return shuffleArray(doubleArray(shuffleArray(DATA).slice(0, 5)));
           break;
         case "Normal":
-          return doubleArray(shuffleArray(DATA).slice(0, 7));
+          return shuffleArray(doubleArray(shuffleArray(DATA).slice(0, 7)));
           break;
         case "Hard":
-          return doubleArray(shuffleArray(DATA).slice(0, 9));
+          return shuffleArray(doubleArray(shuffleArray(DATA).slice(0, 9)));
       }
     },
     [difficulty]
