@@ -13,51 +13,59 @@ const Card = ({
   id,
   onClick,
   selectTwoCard,
+  setSelectTwoCard,
   correct,
   setCorrect,
   wrongTwoCard,
   handleWrongTwoCard,
 }) => {
   const [flip, setFlip] = useState(false);
-
+  const [clickDisabled, setClickDisabled] = useState(true);
   useEffect(() => {
-    return () => {};
-  }, []);
-
-  const handleIncorrect = (id) => {
-    console.log(wrongTwoCard);
     if (wrongTwoCard.length === 2) {
       wrongTwoCard.forEach((cardId) => {
         if (cardId === id) {
           console.log("출력해줘!");
-          setFlip(false);
+          setTimeout(() => {
+            setFlip(false);
+          }, 1000);
           handleWrongTwoCard([]);
         }
       });
     }
-  };
+  }, [wrongTwoCard]);
 
-  const handleClick = (id, success) => {
-    console.log("handleClick실행!");
+  // useEffect(() => {
+  //   if (selectTwoCard.length === 2) {
+  //     console.log("이게 찍히나?");
+  //     setClickDisabled(true);
+  //     setTimeout(() => {
+  //       setClickDisabled(false);
+  //     }, 1000);
+  //   }
+  // }, [selectTwoCard]);
+
+  const handleClick = (id) => {
+    // if (clickDisabled) {
+    //   setTimeout(() => {
+    //     setClickDisabled(false);
+    //   }, 1000);
+    // }
     setFlip(true);
     if (selectTwoCard.length < 2) {
       selectTwoCard.push(id);
-      console.log(selectTwoCard + " @@ " + selectTwoCard.length);
+
       if (selectTwoCard.length === 2) {
         if (selectTwoCard[0] === selectTwoCard[1]) {
           setCorrect(correct + 1);
-          // setCardFlip(1); //다시 뒤집을 필요 없는
-          console.log("정답");
         }
         if (selectTwoCard[0] !== selectTwoCard[1]) {
-          // setCardFlip(-1); //원상복귀를 해줘라
           handleWrongTwoCard(selectTwoCard);
-          console.log("오답", wrongTwoCard);
-          handleIncorrect();
         }
         selectTwoCard.splice(0, selectTwoCard.length);
       }
     }
+
     // onClick(id, success);
   };
 

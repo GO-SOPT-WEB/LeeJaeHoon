@@ -15,10 +15,12 @@ const CardList = ({
 }) => {
   const [wrongTwoCard, setWrongTwoCard] = useState([]);
   let selectTwoCard = [];
+  console.log(selectTwoCard);
   const handleWrongTwoCard = (arr) => {
     let temp = [...arr];
     setWrongTwoCard(temp);
   };
+
   return (
     <CardListWrapper>
       {difficulty === "Easy" && (
