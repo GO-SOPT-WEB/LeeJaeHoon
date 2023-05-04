@@ -1,6 +1,6 @@
 import React from "react";
 import { NavWrapper, DifficultyButton } from "./Nav.style";
-const Nav = ({ onClickDifficulty }) => {
+const Nav = ({ onClickDifficulty, setAll }) => {
   return (
     <NavWrapper>
       <DifficultyButton value="Easy" onClick={onClickDifficulty}>

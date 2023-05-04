@@ -3,10 +3,22 @@ import { DATA } from "./../../constant/CARD";
 import CardItem from "../cardItem/CardItem";
 
 import { doubleArray } from "./../../utils/doubleArray";
-
+import { useState } from "react";
 import { CardListWrapper, CardItmeList } from "./CardList.style";
-const CardList = ({ difficulty, onClick, cardFilp }) => {
-  console.log(doubleArray(DATA.slice(0, 5)));
+const CardList = ({
+  difficulty,
+  onClick,
+  correct = { correct },
+  setCorrect = { setCorrect },
+  // cardFlip,
+  // setCardFlip,
+}) => {
+  const [wrongTwoCard, setWrongTwoCard] = useState([]);
+  let selectTwoCard = [];
+  const handleWrongTwoCard = (arr) => {
+    let temp = [...arr];
+    setWrongTwoCard(temp);
+  };
   return (
     <CardListWrapper>
       {difficulty === "Easy" && (
@@ -18,7 +30,13 @@ const CardList = ({ difficulty, onClick, cardFilp }) => {
                 src={card.src}
                 id={card.id}
                 onClick={onClick}
-                cardFilp={cardFilp}
+                // cardFlip={cardFlip}
+                // setCardFlip={setCardFlip}
+                selectTwoCard={selectTwoCard}
+                correct={correct}
+                setCorrect={setCorrect}
+                wrongTwoCard={wrongTwoCard}
+                handleWrongTwoCard={handleWrongTwoCard}
               ></CardItem>
             );
           })}
@@ -33,7 +51,9 @@ const CardList = ({ difficulty, onClick, cardFilp }) => {
                 src={card.src}
                 id={card.id}
                 onClick={onClick}
-                cardFilp={cardFilp}
+                // cardFlip={cardFlip}
+                // setCardFlip={setCardFlip}
+                selectTwoCard={selectTwoCard}
               ></CardItem>
             );
           })}
@@ -48,15 +68,14 @@ const CardList = ({ difficulty, onClick, cardFilp }) => {
                 src={card.src}
                 id={card.id}
                 onClick={onClick}
-                cardFilp={cardFilp}
+                // cardFlip={cardFlip}
+                // setCardFlip={setCardFlip}
+                selectTwoCard={selectTwoCard}
               ></CardItem>
             );
           })}
         </CardItmeList>
       )}
-      {/* {DATA.map((card) => (
-        <CardItem key={card.title} src={card.src}></CardItem>
-      ))} */}
     </CardListWrapper>
   );
 };
