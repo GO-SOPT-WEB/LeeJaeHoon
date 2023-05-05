@@ -24,12 +24,10 @@ const Card = ({
 }) => {
   const [flip, setFlip] = useState(false);
 
-  console.log("카드 성공여부 ", success);
   useEffect(() => {
     if (wrongTwoCard.length === 2) {
       wrongTwoCard.forEach((cardId) => {
         if (cardId === id) {
-          console.log("출력해줘!");
           setTimeout(() => {
             setFlip(false);
           }, 1000);
@@ -52,13 +50,13 @@ const Card = ({
     setFlip(true);
     if (selectTwoCard.length < 2) {
       selectTwoCard.push(id);
-      console.log(selectTwoCard);
+
       if (selectTwoCard.length === 2) {
         setDelay(true);
         if (selectTwoCard[0] === selectTwoCard[1]) {
           setCorrect(correct + 1);
-          success = true;
         }
+
         if (selectTwoCard[0] !== selectTwoCard[1]) {
           handleWrongTwoCard(selectTwoCard);
         }
@@ -74,7 +72,7 @@ const Card = ({
   };
 
   return (
-    <CardWrapper onClick={delay ? null : handleClick}>
+    <CardWrapper onClick={delay || success ? null : handleClick}>
       <CardInner flip={flip}>
         <CardBack>
           <CardBackImg></CardBackImg>

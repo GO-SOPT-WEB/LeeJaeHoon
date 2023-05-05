@@ -10,7 +10,7 @@ const colors = {
 
 const fontSize = {
   xs: "1rem", // 16
-  sm: "1.5rem", //
+  sm: "1.5rem", //24
   md: "1.75rem",
   lg: "2rem",
   xl: "3rem",

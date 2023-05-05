@@ -63,10 +63,7 @@ body {
   background-color: ${(props) => props.theme.colors.mainLightGrey};
   margin: 0 auto;
 }
-/* #root{
-    background-color: ${(props) => props.theme.colors.mainLightGrey};
-    margin: 0 auto;
-  } */
+
 a {
   text-decoration: none;
   color:inherit;

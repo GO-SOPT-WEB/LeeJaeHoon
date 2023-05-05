@@ -25,12 +25,6 @@ export const SubText = styled.h2`
   color: ${(props) => props.theme.colors.mainWhite};
 `;
 
-// export const SubTextAnimation = styled(SubText)`
-//   font-size: ${(props) => props.theme.fontSize.xl};
-//   color: ${(props) => props.theme.colors.mainWhite};
-//   text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff;
-// `;
-
 const textShadowAnimation = keyframes`
   0% {
     text-shadow: none;

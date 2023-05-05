@@ -10,33 +10,24 @@ import { shuffleArray } from "./../../utils/shuffleArray";
 const CardList = React.memo(({ difficulty, correct, setCorrect, reset }) => {
   const [wrongTwoCard, setWrongTwoCard] = useState([]);
   const [selectTwoCard, setSelectTwoCard] = useState([]);
+  const [delay, setDelay] = useState(false);
 
   const handleWrongTwoCard = (arr) => {
     let temp = [...arr];
     setWrongTwoCard(temp);
   };
 
-  // const handleWrongSelectCard = (i) => {
-  //   (prev) => {
-  //     return [...prev, i];
-  //   };
-  // };
-
-  const [delay, setDelay] = useState(false);
   let filterData = useMemo(() => {
     switch (difficulty) {
       case "Easy":
         return shuffleArray(doubleArray(shuffleArray(DATA).slice(0, 5)));
-        break;
       case "Normal":
         return shuffleArray(doubleArray(shuffleArray(DATA).slice(0, 7)));
-        break;
       case "Hard":
         return shuffleArray(doubleArray(shuffleArray(DATA).slice(0, 9)));
     }
   }, [difficulty, reset]);
 
-  console.log(filterData);
   return (
     <CardListWrapper>
       <CardItmeList>
@@ -46,6 +37,7 @@ const CardList = React.memo(({ difficulty, correct, setCorrect, reset }) => {
               key={i}
               src={card.src}
               id={card.id}
+              success={card.success}
               selectTwoCard={selectTwoCard}
               correct={correct}
               setCorrect={setCorrect}

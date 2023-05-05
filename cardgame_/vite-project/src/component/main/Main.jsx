@@ -1,6 +1,5 @@
 import React from "react";
 import { MainWrapper } from "./Main.style";
-import Header from "./../header/Header";
 import CardList from "./../cardList/CardList";
 import Nav from "./../nav/Nav";
 
@@ -10,7 +9,7 @@ const Main = ({ correct, setCorrect, setAll, reset }) => {
 
   const onClickDifficulty = (e) => {
     setDifficulty(e.target.value);
-    console.log(e.target.value);
+
     switch (e.target.value) {
       case "Easy":
         setAll(5);

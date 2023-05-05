@@ -25,8 +25,8 @@ export const CardFrontBack = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  backface-visibility: hidden;
 
+  backface-visibility: hidden;
   border-radius: 20px;
 `;
 
