@@ -45,7 +45,7 @@ const textScaleAnimation = keyframes`
     transform: scale(1);
   }
   50% {
-    transform: scale(1.2);
+    transform: scale(1.3);
   }
   100% {
     transform: scale(1);
@@ -60,6 +60,6 @@ export const SubTextAnimation = styled(SubText)`
     animation &&
     css`
       animation: ${textShadowAnimation} 1s ease-in-out,
-        ${textScaleAnimation} 1.4s ease-in-out;
+        ${textScaleAnimation} 1.3s ease-in-out;
     `}
 `;
