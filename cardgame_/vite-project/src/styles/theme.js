@@ -4,6 +4,7 @@ const colors = {
   mainLightBlue: "#50C1E9",
   mainPurple: "#7A57D1",
   mainWhite: "#ffffff",
+  mainLightPink: "#f9bcdd",
 };
 
 const fontSize = {
