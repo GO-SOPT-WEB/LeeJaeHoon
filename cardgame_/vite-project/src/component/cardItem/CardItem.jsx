@@ -20,6 +20,7 @@ const Card = ({
   delay,
   setDelay,
   reset,
+  difficulty,
 }) => {
   const [flip, setFlip] = useState(false);
 
@@ -45,7 +46,7 @@ const Card = ({
 
   useEffect(() => {
     setFlip(false);
-  }, [reset]);
+  }, [reset, difficulty]);
 
   const handleClick = () => {
     setFlip(true);

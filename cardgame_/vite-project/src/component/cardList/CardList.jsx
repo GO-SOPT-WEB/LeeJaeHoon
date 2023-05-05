@@ -53,6 +53,7 @@ const CardList = React.memo(({ difficulty, correct, setCorrect, reset }) => {
               handleWrongTwoCard={handleWrongTwoCard}
               delay={delay}
               setDelay={setDelay}
+              difficulty={difficulty}
               reset={reset}
             ></CardItem>
           );
