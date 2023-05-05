@@ -11,6 +11,7 @@ import {
 const Card = ({
   src,
   id,
+  success,
   selectTwoCard,
   correct,
   setCorrect,
@@ -18,9 +19,11 @@ const Card = ({
   handleWrongTwoCard,
   delay,
   setDelay,
+  reset,
 }) => {
   const [flip, setFlip] = useState(false);
 
+  console.log("카드 성공여부 ", success);
   useEffect(() => {
     if (wrongTwoCard.length === 2) {
       wrongTwoCard.forEach((cardId) => {
@@ -39,6 +42,11 @@ const Card = ({
     setDelay(false);
     return () => {};
   }, [selectTwoCard]);
+
+  useEffect(() => {
+    setFlip(false);
+  }, [reset]);
+
   const handleClick = () => {
     setFlip(true);
     if (selectTwoCard.length < 2) {
@@ -48,6 +56,7 @@ const Card = ({
         setDelay(true);
         if (selectTwoCard[0] === selectTwoCard[1]) {
           setCorrect(correct + 1);
+          success = true;
         }
         if (selectTwoCard[0] !== selectTwoCard[1]) {
           handleWrongTwoCard(selectTwoCard);

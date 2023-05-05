@@ -7,11 +7,7 @@ import { useState, useMemo } from "react";
 import { CardListWrapper, CardItmeList } from "./CardList.style";
 
 import { shuffleArray } from "./../../utils/shuffleArray";
-const CardList = ({
-  difficulty,
-  correct = { correct },
-  setCorrect = { setCorrect },
-}) => {
+const CardList = React.memo(({ difficulty, correct, setCorrect, reset }) => {
   const [wrongTwoCard, setWrongTwoCard] = useState([]);
   const [selectTwoCard, setSelectTwoCard] = useState([]);
 
@@ -27,22 +23,18 @@ const CardList = ({
   // };
 
   const [delay, setDelay] = useState(false);
-  let filterData = useMemo(
-    () => {
-      switch (difficulty) {
-        case "Easy":
-          return shuffleArray(doubleArray(shuffleArray(DATA).slice(0, 5)));
-          break;
-        case "Normal":
-          return shuffleArray(doubleArray(shuffleArray(DATA).slice(0, 7)));
-          break;
-        case "Hard":
-          return shuffleArray(doubleArray(shuffleArray(DATA).slice(0, 9)));
-      }
-    },
-    [difficulty]
-    // shuffleArray(DATA)
-  );
+  let filterData = useMemo(() => {
+    switch (difficulty) {
+      case "Easy":
+        return shuffleArray(doubleArray(shuffleArray(DATA).slice(0, 5)));
+        break;
+      case "Normal":
+        return shuffleArray(doubleArray(shuffleArray(DATA).slice(0, 7)));
+        break;
+      case "Hard":
+        return shuffleArray(doubleArray(shuffleArray(DATA).slice(0, 9)));
+    }
+  }, [difficulty, reset]);
 
   console.log(filterData);
   return (
@@ -61,52 +53,12 @@ const CardList = ({
               handleWrongTwoCard={handleWrongTwoCard}
               delay={delay}
               setDelay={setDelay}
+              reset={reset}
             ></CardItem>
           );
         })}
       </CardItmeList>
-      {/* )}
-      {difficulty === "Normal" && (
-        <CardItmeList>
-          {filterData.map((card, i) => {
-            return (
-              <CardItem
-                key={i}
-                src={card.src}
-                id={card.id}
-                selectTwoCard={selectTwoCard}
-                correct={correct}
-                setCorrect={setCorrect}
-                wrongTwoCard={wrongTwoCard}
-                handleWrongTwoCard={handleWrongTwoCard}
-                delay={delay}
-                setDelay={setDelay}
-              ></CardItem>
-            );
-          })}
-        </CardItmeList>
-      )}
-      {difficulty === "Hard" && (
-        <CardItmeList>
-          {filterData.map((card, i) => {
-            return (
-              <CardItem
-                key={i}
-                src={card.src}
-                id={card.id}
-                selectTwoCard={selectTwoCard}
-                correct={correct}
-                setCorrect={setCorrect}
-                wrongTwoCard={wrongTwoCard}
-                handleWrongTwoCard={handleWrongTwoCard}
-                delay={delay}
-                setDelay={setDelay}
-              ></CardItem>
-            );
-          })}
-        </CardItmeList>
-      )} */}
     </CardListWrapper>
   );
-};
+});
 export default CardList;

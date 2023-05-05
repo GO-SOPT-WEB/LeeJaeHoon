@@ -5,9 +5,8 @@ import CardList from "./../cardList/CardList";
 import Nav from "./../nav/Nav";
 
 import { useState } from "react";
-const Main = ({ correct, setCorrect, setAll }) => {
+const Main = ({ correct, setCorrect, setAll, reset }) => {
   const [difficulty, setDifficulty] = useState("Easy");
-  const [cardFlip, setCardFlip] = useState(1);
 
   const onClickDifficulty = (e) => {
     setDifficulty(e.target.value);
@@ -29,34 +28,15 @@ const Main = ({ correct, setCorrect, setAll }) => {
         break;
     }
   };
-  const onClickCardItem = (id, success) => {
-    // if (selectTwoCard.length < 2) {
-    //   selectTwoCard.push(id);
-    //   console.log(selectTwoCard + " AA " + selectTwoCard.length);
-    //   if (selectTwoCard.length === 2) {
-    //     if (selectTwoCard[0] === selectTwoCard[1]) {
-    //       setCorrect(correct + 1);
-    //       setCardFlip(1); //다시 뒤집을 필요 없는
-    //       success = true;
-    //     }
-    //     if (selectTwoCard[0] !== selectTwoCard[1]) {
-    //       setCardFlip(-1); //원상복귀를 해줘라
-    //     }
-    //     selectTwoCard.splice(0, selectTwoCard.length);
-    //   }
-    // }
-  };
 
   return (
     <MainWrapper>
       <Nav onClickDifficulty={onClickDifficulty}></Nav>
       <CardList
         difficulty={difficulty}
-        onClick={onClickCardItem}
         correct={correct}
         setCorrect={setCorrect}
-        // cardFlip={cardFlip}
-        // setCardFlip={setCardFlip}
+        reset={reset}
       ></CardList>
     </MainWrapper>
   );

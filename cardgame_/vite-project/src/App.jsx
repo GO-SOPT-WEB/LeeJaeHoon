@@ -1,22 +1,48 @@
 import { useState, useEffect } from "react";
 
 import Header from "./component/header/Header";
-import CardList from "./component/cardList/CardList";
-import Nav from "./component/nav/Nav";
 import Main from "./component/main/Main";
-import "./App.css";
 
+import styled from "styled-components";
+
+const ResetButton = styled.button`
+  position: fixed;
+
+  top: 1rem;
+  right: 1rem;
+  width: 8rem;
+  height: 4rem;
+
+  z-index: 99;
+  border-radius: 10px;
+  background-color: ${(props) => props.theme.colors.mainPurple};
+  color: ${(props) => props.theme.colors.mainWhite};
+
+  font-size: ${(props) => props.theme.fontSize.md};
+  font-family: inherit;
+`;
 function App() {
   const [correct, setCorrect] = useState(0);
   const [all, setAll] = useState(5);
-  useEffect(() => {
-    console.log(correct, " ", all);
-  }, [correct, all]);
+  const [reset, setReset] = useState(false);
+  useEffect(() => {}, [correct]);
+
+  const handleReset = () => {
+    setCorrect(0);
+    setReset((toggle) => !toggle);
+    console.log(reset);
+  };
 
   return (
     <>
+      <ResetButton onClick={handleReset}>Reset</ResetButton>
       <Header correct={correct} EA={all}></Header>
-      <Main correct={correct} setCorrect={setCorrect} setAll={setAll}></Main>
+      <Main
+        correct={correct}
+        setCorrect={setCorrect}
+        setAll={setAll}
+        reset={reset}
+      ></Main>
     </>
   );
 }
