@@ -4,7 +4,7 @@ import Header from "./component/header/Header";
 import Main from "./component/main/Main";
 
 import styled from "styled-components";
-
+import ModalFrame from "./component/modal/ModalFrame";
 const ResetButton = styled.button`
   position: fixed;
 
@@ -22,11 +22,18 @@ const ResetButton = styled.button`
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   font-family: inherit;
 `;
+
 function App() {
   const [correct, setCorrect] = useState(0);
   const [all, setAll] = useState(5);
   const [reset, setReset] = useState(false);
-  useEffect(() => {}, [correct]);
+  const [onModal, setOnModal] = useState(false);
+
+  useEffect(() => {
+    if (correct === all) {
+      setOnModal(true);
+    }
+  }, [correct]);
 
   const handleReset = () => {
     setCorrect(0);
@@ -34,6 +41,7 @@ function App() {
     console.log(reset);
   };
 
+  const handleModal = () => {};
   return (
     <>
       <ResetButton onClick={handleReset}>Reset</ResetButton>
@@ -44,6 +52,13 @@ function App() {
         setAll={setAll}
         reset={reset}
       ></Main>
+      {onModal ? (
+        <ModalFrame setOnModal={setOnModal} handleReset={handleReset}>
+          🥳🥳 축하합니다!! 🥳🥳
+        </ModalFrame>
+      ) : (
+        <div></div>
+      )}
     </>
   );
 }
