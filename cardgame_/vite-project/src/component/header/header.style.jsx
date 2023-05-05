@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 export const HeaderWrapper = styled.header`
   display: flex;
@@ -23,4 +23,43 @@ export const MainText = styled.h1`
 export const SubText = styled.h2`
   font-size: ${(props) => props.theme.fontSize.xl};
   color: ${(props) => props.theme.colors.mainWhite};
+`;
+
+// export const SubTextAnimation = styled(SubText)`
+//   font-size: ${(props) => props.theme.fontSize.xl};
+//   color: ${(props) => props.theme.colors.mainWhite};
+//   text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff;
+// `;
+
+const textShadowAnimation = keyframes`
+  0% {
+    text-shadow: none;
+  }
+  100% {
+    text-shadow: 0 0 10px #e9f819, 0 0 20px #e9f819, 0 0 40px #e9f819;
+  }
+`;
+
+const textScaleAnimation = keyframes`
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+`;
+
+// SubTextAnimation 컴포넌트 스타일링
+export const SubTextAnimation = styled(SubText)`
+  font-size: ${(props) => props.theme.fontSize.xl};
+
+  ${({ animation }) =>
+    animation &&
+    css`
+      animation: ${textShadowAnimation} 1s ease-in-out,
+        ${textScaleAnimation} 1.4s ease-in-out;
+    `}
 `;
