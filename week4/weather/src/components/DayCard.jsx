@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 const DayCard = ({ area, main, clouds, imgSrc }) => {
-  console.log(main);
   return (
     <DayCardWrapper>
       <WeatherCard>

@@ -20,7 +20,6 @@ export const daySelector = selectorFamily({
   key: "daySelector",
   get: (area) => async () => {
     try {
-      console.log(import.meta.env.VITE_APP_WEATHER);
       const response = await basicAxios.get(
         `/weather?q=${area}&appid=${WEATHER_API_KEY}&units=metric`
       );

@@ -1,20 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 
-export const ErrorPage = () => {
+const Loading = () => {
   return (
-    <ErrorPageWrapper>
-      <ErrorText>ErrorPage</ErrorText>
-    </ErrorPageWrapper>
+    <LoadingWrapper>
+      <LoadingText>...Loading</LoadingText>
+    </LoadingWrapper>
   );
 };
 
-const ErrorPageWrapper = styled.div`
+const LoadingWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
 `;
-const ErrorText = styled.h1`
+const LoadingText = styled.h1`
   font-size: ${(props) => props.theme.fontSize.xl};
 `;
+export default Loading;

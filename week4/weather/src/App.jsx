@@ -5,15 +5,18 @@ import { theme } from "./styles/theme.js";
 import { RecoilRoot } from "recoil";
 import { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
+import Loading from "./pages/Loading.jsx";
 import { ErrorPage } from "./pages/ErrorPage.jsx";
 function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle></GlobalStyle>
-        <Suspense fallback={<ErrorPage></ErrorPage>}>
-          <Router />
-        </Suspense>
+        <ErrorBoundary fallback={<ErrorPage></ErrorPage>}>
+          <Suspense fallback={<Loading></Loading>}>
+            <Router />
+          </Suspense>
+        </ErrorBoundary>
       </ThemeProvider>
     </>
   );
