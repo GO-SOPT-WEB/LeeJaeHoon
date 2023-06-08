@@ -5,6 +5,8 @@ import Main from "./component/main/Main";
 
 import styled from "styled-components";
 import ModalFrame from "./component/modal/ModalFrame";
+import { useRecoilValue, useRecoilState } from "recoil";
+import { scoreState, allCardState } from "./atoms/atom";
 const ResetButton = styled.button`
   position: fixed;
 
@@ -24,13 +26,12 @@ const ResetButton = styled.button`
 `;
 
 function App() {
-  const [correct, setCorrect] = useState(0);
-  const [all, setAll] = useState(5);
   const [reset, setReset] = useState(false);
   const [onModal, setOnModal] = useState(false);
-
+  const [correct, setCorrect] = useRecoilState(scoreState);
+  const allCard = useRecoilValue(allCardState);
   useEffect(() => {
-    if (correct === all) {
+    if (correct === allCard) {
       setOnModal(true);
     }
   }, [correct]);
@@ -38,20 +39,13 @@ function App() {
   const handleReset = () => {
     setCorrect(0);
     setReset((toggle) => !toggle);
-    console.log(reset);
   };
 
-  const handleModal = () => {};
   return (
     <>
       <ResetButton onClick={handleReset}>Reset</ResetButton>
-      <Header correct={correct} EA={all}></Header>
-      <Main
-        correct={correct}
-        setCorrect={setCorrect}
-        setAll={setAll}
-        reset={reset}
-      ></Main>
+      <Header></Header>
+      <Main reset={reset}></Main>
       {onModal ? (
         <ModalFrame setOnModal={setOnModal} handleReset={handleReset}>
           🥳🥳 축하합니다!! 🥳🥳

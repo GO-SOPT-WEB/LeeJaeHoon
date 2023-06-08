@@ -8,22 +8,23 @@ import {
   CardBackImg,
 } from "./CardItem.style";
 
+import { scoreState, difficultyState } from "../../atoms/atom";
+import { useRecoilState, useRecoilValue } from "recoil";
+
 const Card = ({
   src,
   id,
   success,
   selectTwoCard,
-  correct,
-  setCorrect,
   wrongTwoCard,
   handleWrongTwoCard,
   delay,
   setDelay,
   reset,
-  difficulty,
 }) => {
   const [flip, setFlip] = useState(false);
-
+  const [score, setScore] = useRecoilState(scoreState);
+  const difficulty = useRecoilValue(difficultyState);
   useEffect(() => {
     if (wrongTwoCard.length === 2) {
       wrongTwoCard.forEach((cardId) => {
@@ -54,7 +55,7 @@ const Card = ({
       if (selectTwoCard.length === 2) {
         setDelay(true);
         if (selectTwoCard[0] === selectTwoCard[1]) {
-          setCorrect(correct + 1);
+          setScore(score + 1);
         }
 
         if (selectTwoCard[0] !== selectTwoCard[1]) {

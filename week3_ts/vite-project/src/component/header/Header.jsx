@@ -5,8 +5,12 @@ import {
   SubText,
   SubTextAnimation,
 } from "./Header.style";
-const Header = ({ correct, EA }) => {
+import { allCardState, scoreState } from "../../atoms/atom";
+import { useRecoilValue } from "recoil";
+const Header = () => {
   const [animation, setAnimation] = useState(false);
+  const correct = useRecoilValue(scoreState);
+  const allCard = useRecoilValue(allCardState);
   useEffect(() => {
     if (correct) {
       setAnimation(true);
@@ -19,7 +23,7 @@ const Header = ({ correct, EA }) => {
       <MainText>라이언 일병 맞추기</MainText>
 
       <SubTextAnimation animation={animation}>
-        {correct} / {EA}
+        {correct} / {allCard}
       </SubTextAnimation>
     </HeaderWrapper>
   );

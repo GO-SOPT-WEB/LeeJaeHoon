@@ -8,17 +8,17 @@ import { CardListWrapper, CardItmeList } from "./CardList.style";
 
 import { shuffleArray } from "../../utils/shuffleArray";
 
-import { useRecoilState, useRecoilValue } from "recoil";
-import { difficultyState } from "../../atoms/difficulty";
+import { useRecoilValue, useRecoilState } from "recoil";
+import { difficultyState, scoreState } from "../../atoms/atom";
 
-const CardList = React.memo(({ correct, setCorrect, reset }) => {
+const CardList = React.memo(({ reset }) => {
   const [wrongTwoCard, setWrongTwoCard] = useState([]);
   const [selectTwoCard, setSelectTwoCard] = useState([]);
   const [delay, setDelay] = useState(false);
 
   const difficulty = useRecoilValue(difficultyState);
-
-  const handleWrongTwoCard = (arr: []) => {
+  const [correct, setCorrect] = useRecoilState(scoreState);
+  const handleWrongTwoCard = (arr) => {
     let temp = [...arr];
     setWrongTwoCard(temp);
   };
@@ -45,13 +45,10 @@ const CardList = React.memo(({ correct, setCorrect, reset }) => {
               id={card.id}
               success={card.success}
               selectTwoCard={selectTwoCard}
-              correct={correct}
-              setCorrect={setCorrect}
               wrongTwoCard={wrongTwoCard}
               handleWrongTwoCard={handleWrongTwoCard}
               delay={delay}
               setDelay={setDelay}
-              difficulty={difficulty}
               reset={reset}
             ></CardItem>
           );
