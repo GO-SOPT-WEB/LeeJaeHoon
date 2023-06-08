@@ -18,7 +18,7 @@ const CardList = React.memo(({ correct, setCorrect, reset }) => {
 
   const difficulty = useRecoilValue(difficultyState);
 
-  const handleWrongTwoCard = (arr) => {
+  const handleWrongTwoCard = (arr: []) => {
     let temp = [...arr];
     setWrongTwoCard(temp);
   };
