@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "esnext",
     "module": "esnext",
     "lib": ["dom", "dom.iterable", "esnext"],
     "strict": true,
@@ -9,10 +9,11 @@
     "strictNullChecks": true, // undefined와 null에게 구체적인 타입을 부여해 이 둘에 대한 참조를 막고 런타임전에 에러를 발생시킴
     "allowJs": true, //   js 파일들 ts에서 import해서 쓸 수 있는지  (혹여나 필요할 수도 있어서?)
     "allowSyntheticDefaultImports": true, //ts에서 Synthetic기본 import허용
-    "baseUrl": "src",
+
     "jsx": "react", // jsx가 어떻게 방출되는지 조절하는 옵션 : react - React.createElement를 부르는 것과 동일하게
     "noUnusedLocals": true, //쓰지않는 지역변수 있으면 에러내기
-    "noUnusedParameters": true //쓰지않는 파라미터 있으면 에러내기
+    "noUnusedParameters": true, //쓰지않는 파라미터 있으면 에러내기
+    "moduleResolution": "node"
   },
   "include": ["src"]
 }

@@ -1,11 +1,13 @@
 import React from "react";
 import { MainWrapper } from "./Main.style";
 import CardList from "./../cardList/CardList";
-import Nav from "./../nav/Nav";
+import Nav from "./../nav/Nav.tsx";
+import { useRecoilState } from "recoil";
+import { difficultyState } from "../../atoms/difficulty";
 
 import { useState } from "react";
 const Main = ({ correct, setCorrect, setAll, reset }) => {
-  const [difficulty, setDifficulty] = useState("Easy");
+  const [difficulty, setDifficulty] = useRecoilState(difficultyState);
 
   const onClickDifficulty = (e) => {
     setDifficulty(e.target.value);
@@ -32,7 +34,6 @@ const Main = ({ correct, setCorrect, setAll, reset }) => {
     <MainWrapper>
       <Nav onClickDifficulty={onClickDifficulty}></Nav>
       <CardList
-        difficulty={difficulty}
         correct={correct}
         setCorrect={setCorrect}
         reset={reset}

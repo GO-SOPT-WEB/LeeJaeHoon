@@ -1,16 +1,22 @@
 import React from "react";
-import { DATA } from "./../../constant/CARD";
+import { DATA } from "../../constant/CARD";
 import CardItem from "../cardItem/CardItem";
 
-import { doubleArray } from "./../../utils/doubleArray";
+import { doubleArray } from "../../utils/doubleArray";
 import { useState, useMemo } from "react";
 import { CardListWrapper, CardItmeList } from "./CardList.style";
 
-import { shuffleArray } from "./../../utils/shuffleArray";
-const CardList = React.memo(({ difficulty, correct, setCorrect, reset }) => {
+import { shuffleArray } from "../../utils/shuffleArray";
+
+import { useRecoilState, useRecoilValue } from "recoil";
+import { difficultyState } from "../../atoms/difficulty";
+
+const CardList = React.memo(({ correct, setCorrect, reset }) => {
   const [wrongTwoCard, setWrongTwoCard] = useState([]);
   const [selectTwoCard, setSelectTwoCard] = useState([]);
   const [delay, setDelay] = useState(false);
+
+  const difficulty = useRecoilValue(difficultyState);
 
   const handleWrongTwoCard = (arr) => {
     let temp = [...arr];

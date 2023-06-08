@@ -5,10 +5,13 @@ import "./index.css";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./styles/GlobalStyle.js";
 import { theme } from "./styles/theme.js";
+import { RecoilRoot } from "recoil";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <ThemeProvider theme={theme}>
     <GlobalStyle />
-    <App />
+    <RecoilRoot>
+      <App />
+    </RecoilRoot>
   </ThemeProvider>
 );

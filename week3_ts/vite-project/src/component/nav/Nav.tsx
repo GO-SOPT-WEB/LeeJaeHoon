@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavWrapper, DifficultyButton } from "./Nav.style";
 const Nav = ({ onClickDifficulty }) => {
+  //: { onClickDifficulty: () => void }
   const [selected, setSelected] = useState("Easy");
 
   useEffect(() => {});
