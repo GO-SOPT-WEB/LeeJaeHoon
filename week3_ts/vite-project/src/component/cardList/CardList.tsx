@@ -8,8 +8,8 @@ import { CardListWrapper, CardItmeList } from "./CardList.style";
 
 import { shuffleArray } from "../../utils/shuffleArray";
 
-import { useRecoilValue, useRecoilState } from "recoil";
-import { difficultyState, scoreState, resetState } from "../../atoms/atom";
+import { useRecoilValue } from "recoil";
+import { difficultyState, resetState } from "../../atoms/atom";
 
 const CardList = React.memo(() => {
   const [wrongTwoCard, setWrongTwoCard] = useState<number[]>([]);

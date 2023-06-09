@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  HeaderWrapper,
-  MainText,
-  SubText,
-  SubTextAnimation,
-} from "./Header.style";
+import { HeaderWrapper, MainText, SubTextAnimation } from "./Header.style";
 import { allCardState, scoreState } from "../../atoms/atom";
 import { useRecoilValue } from "recoil";
 const Header = () => {
