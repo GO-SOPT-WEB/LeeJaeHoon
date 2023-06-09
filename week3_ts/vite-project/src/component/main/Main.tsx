@@ -7,11 +7,12 @@ import { difficultyState, scoreState } from "../../atoms/atom";
 import { useSetRecoilState } from "recoil";
 
 import { useState } from "react";
-const Main = ({ reset }) => {
+
+const Main = () => {
   return (
     <MainWrapper>
       <Nav></Nav>
-      <CardList reset={reset}></CardList>
+      <CardList></CardList>
     </MainWrapper>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { DATA } from "../../constant/CARD";
+import { CardData, DATA } from "../../constant/CARD";
 import CardItem from "../cardItem/CardItem";
 
 import { doubleArray } from "../../utils/doubleArray";
@@ -9,21 +9,21 @@ import { CardListWrapper, CardItmeList } from "./CardList.style";
 import { shuffleArray } from "../../utils/shuffleArray";
 
 import { useRecoilValue, useRecoilState } from "recoil";
-import { difficultyState, scoreState } from "../../atoms/atom";
+import { difficultyState, scoreState, resetState } from "../../atoms/atom";
 
-const CardList = React.memo(({ reset }) => {
-  const [wrongTwoCard, setWrongTwoCard] = useState([]);
-  const [selectTwoCard, setSelectTwoCard] = useState([]);
+const CardList = React.memo(() => {
+  const [wrongTwoCard, setWrongTwoCard] = useState<number[]>([]);
+
   const [delay, setDelay] = useState(false);
 
   const difficulty = useRecoilValue(difficultyState);
-  const [correct, setCorrect] = useRecoilState(scoreState);
-  const handleWrongTwoCard = (arr) => {
-    let temp = [...arr];
+  const reset = useRecoilValue(resetState);
+  const handleWrongTwoCard = (arr: number[]) => {
+    const temp = [...arr];
     setWrongTwoCard(temp);
   };
 
-  let filterData = useMemo(() => {
+  const filterData: CardData[] = useMemo(() => {
     switch (difficulty) {
       case "Easy":
         return shuffleArray(doubleArray(shuffleArray(DATA).slice(0, 5)));
@@ -31,6 +31,8 @@ const CardList = React.memo(({ reset }) => {
         return shuffleArray(doubleArray(shuffleArray(DATA).slice(0, 7)));
       case "Hard":
         return shuffleArray(doubleArray(shuffleArray(DATA).slice(0, 9)));
+      default:
+        return DATA;
     }
   }, [difficulty, reset]);
 
@@ -44,12 +46,10 @@ const CardList = React.memo(({ reset }) => {
               src={card.src}
               id={card.id}
               success={card.success}
-              selectTwoCard={selectTwoCard}
               wrongTwoCard={wrongTwoCard}
               handleWrongTwoCard={handleWrongTwoCard}
               delay={delay}
               setDelay={setDelay}
-              reset={reset}
             ></CardItem>
           );
         })}

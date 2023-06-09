@@ -19,3 +19,8 @@ export const setModalState = atom<boolean>({
   key: "setModalState",
   default: false,
 });
+
+export const resetState = atom<boolean>({
+  key: "resetState",
+  default: false,
+});

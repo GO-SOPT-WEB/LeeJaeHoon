@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, MouseEventHandler } from "react";
 import {
   CardWrapper,
   CardImg,
@@ -8,24 +8,36 @@ import {
   CardBackImg,
 } from "./CardItem.style";
 
-import { scoreState, difficultyState } from "../../atoms/atom";
+import { scoreState, difficultyState, resetState } from "../../atoms/atom";
 import { useRecoilState, useRecoilValue } from "recoil";
 import React from "react";
+
+interface CardPropType {
+  key: number;
+  src: string;
+  id: number;
+  success: boolean;
+  wrongTwoCard: number[];
+  handleWrongTwoCard: (value: number[]) => void;
+  delay: boolean;
+  setDelay: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
 const Card = ({
   src,
   id,
   success,
-  selectTwoCard,
   wrongTwoCard,
   handleWrongTwoCard,
   delay,
   setDelay,
-  reset,
-}) => {
-  const [flip, setFlip] = useState(false);
+}: CardPropType) => {
+  const [flip, setFlip] = useState<boolean>(false);
   const [score, setScore] = useRecoilState(scoreState);
   const difficulty = useRecoilValue(difficultyState);
+  const reset = useRecoilValue(resetState);
+  const selectTwoCard: number[] = [];
+
   useEffect(() => {
     if (wrongTwoCard.length === 2) {
       wrongTwoCard.forEach((cardId) => {
@@ -41,7 +53,6 @@ const Card = ({
 
   useEffect(() => {
     setDelay(false);
-    return () => {};
   }, [selectTwoCard]);
 
   useEffect(() => {
@@ -74,7 +85,13 @@ const Card = ({
   };
 
   return (
-    <CardWrapper onClick={delay || success ? null : handleClick}>
+    <CardWrapper
+      onClick={
+        delay || success
+          ? undefined
+          : (handleClick as MouseEventHandler<HTMLElement>)
+      }
+    >
       <CardInner flip={flip}>
         <CardBack>
           <CardBackImg></CardBackImg>

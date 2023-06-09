@@ -1,16 +1,26 @@
 import React from "react";
 import ModalPortal from "./Modalpotal";
-import styled from "styled-components";
 
+import { childrenProps } from "../..";
+import { scoreState, resetState, setModalState } from "../../atoms/atom";
+import { useSetRecoilState } from "recoil";
 import { ModalPortalWrapper, ModalBtn } from "./ModalFrame.style";
-const ModalFrame = ({ children, setOnModal, handleReset }) => {
+const ModalFrame = ({ children }: childrenProps) => {
+  const setCorrect = useSetRecoilState(scoreState);
+  const setReset = useSetRecoilState(resetState);
+  const setModal = useSetRecoilState(setModalState);
+
+  const handleReset = () => {
+    setCorrect(0);
+    setReset((toggle) => !toggle);
+  };
   return (
     <ModalPortal>
       <ModalPortalWrapper>
         {children}
         <ModalBtn
           onClick={() => {
-            setOnModal(false);
+            setModal(false);
             handleReset();
           }}
         >

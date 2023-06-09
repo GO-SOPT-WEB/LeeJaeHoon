@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
-
+import { childrenProps } from "../..";
 const ModalOverlay = styled.div`
   position: fixed;
   top: 0;
@@ -12,8 +12,8 @@ const ModalOverlay = styled.div`
   z-index: 999;
 `;
 
-const ModalPortal = ({ children }) => {
-  const modalRoot = document.getElementById("modal-root");
+const ModalPortal = ({ children }: childrenProps) => {
+  const modalRoot = document.getElementById("modal-root") as HTMLElement;
   return ReactDOM.createPortal(
     <ModalOverlay>{children}</ModalOverlay>,
     modalRoot
