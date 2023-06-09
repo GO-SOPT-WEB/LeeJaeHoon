@@ -47,7 +47,7 @@ const textScaleAnimation = keyframes`
 `;
 
 // SubTextAnimation 컴포넌트 스타일링
-export const SubTextAnimation = styled(SubText)<{ animation: string }>`
+export const SubTextAnimation = styled(SubText)<{ animation: boolean }>`
   font-size: ${(props) => props.theme.fontSize.xl};
 
   ${({ animation }) =>

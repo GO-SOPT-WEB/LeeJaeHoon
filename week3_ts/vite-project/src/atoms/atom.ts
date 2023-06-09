@@ -24,3 +24,8 @@ export const resetState = atom<boolean>({
   key: "resetState",
   default: false,
 });
+
+export const selectTwoCardState = atom<number[]>({
+  key: "selectTwoCardState",
+  default: [],
+});

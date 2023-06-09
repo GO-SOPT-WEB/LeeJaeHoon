@@ -8,9 +8,15 @@ import {
   CardBackImg,
 } from "./CardItem.style";
 
-import { scoreState, difficultyState, resetState } from "../../atoms/atom";
+import {
+  scoreState,
+  difficultyState,
+  resetState,
+  selectTwoCardState,
+} from "../../atoms/atom";
 import { useRecoilState, useRecoilValue } from "recoil";
 import React from "react";
+import { clearScreenDown } from "readline";
 
 interface CardPropType {
   key: number;
@@ -34,9 +40,9 @@ const Card = ({
 }: CardPropType) => {
   const [flip, setFlip] = useState<boolean>(false);
   const [score, setScore] = useRecoilState(scoreState);
+  const [selectTwoCard, setSelectTwoCard] = useRecoilState(selectTwoCardState);
   const difficulty = useRecoilValue(difficultyState);
   const reset = useRecoilValue(resetState);
-  const selectTwoCard: number[] = [];
 
   useEffect(() => {
     if (wrongTwoCard.length === 2) {
@@ -61,27 +67,26 @@ const Card = ({
 
   const handleClick = () => {
     setFlip(true);
-    if (selectTwoCard.length < 2) {
-      selectTwoCard.push(id);
 
-      if (selectTwoCard.length === 2) {
+    if (selectTwoCard.length < 3) {
+      const updatedSelectTwoCard = [...selectTwoCard, id];
+      setSelectTwoCard(updatedSelectTwoCard);
+      if (updatedSelectTwoCard.length === 2) {
         setDelay(true);
-        if (selectTwoCard[0] === selectTwoCard[1]) {
+        if (updatedSelectTwoCard[0] === updatedSelectTwoCard[1]) {
           setScore(score + 1);
         }
 
-        if (selectTwoCard[0] !== selectTwoCard[1]) {
-          handleWrongTwoCard(selectTwoCard);
+        if (updatedSelectTwoCard[0] !== updatedSelectTwoCard[1]) {
+          handleWrongTwoCard(updatedSelectTwoCard);
+          console.log(wrongTwoCard);
         }
-
-        selectTwoCard.splice(0, selectTwoCard.length);
+        setSelectTwoCard([]);
         setTimeout(() => {
           setDelay(false);
         }, 1000);
       }
     }
-
-    // onClick(id, success);
   };
 
   return (
