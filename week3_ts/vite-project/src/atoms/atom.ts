@@ -14,3 +14,8 @@ export const allCardState = atom<number>({
   key: "allCardState",
   default: 5,
 });
+
+export const setModalState = atom<boolean>({
+  key: "setModalState",
+  default: false,
+});
