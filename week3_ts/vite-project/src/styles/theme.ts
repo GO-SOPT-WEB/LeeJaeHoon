@@ -1,3 +1,5 @@
+import { DefaultTheme } from "styled-components";
+
 const colors = {
   mainLightGreen: "#5BE7C4",
   mainLightGrey: "#F5F7FA",
@@ -17,8 +19,10 @@ const fontSize = {
   xxl: "4rem",
 };
 
-export type Color = keyof typeof colors;
-export const theme = {
+export type ColorType = typeof colors;
+export type FontSizeTypes = typeof fontSize;
+
+export const theme: DefaultTheme = {
   colors,
   fontSize,
 };
