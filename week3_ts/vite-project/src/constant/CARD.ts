@@ -1,4 +1,11 @@
-export const DATA = [
+export interface CardData {
+  id: number;
+  title: string;
+  src: string;
+  success: boolean;
+}
+
+export const DATA: CardData[] = [
   {
     id: 1,
     title: "인사하는 라이언",
