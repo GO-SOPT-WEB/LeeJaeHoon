@@ -17,6 +17,7 @@ const fontSize = {
   xxl: "4rem",
 };
 
+export type Color = keyof typeof colors;
 export const theme = {
   colors,
   fontSize,

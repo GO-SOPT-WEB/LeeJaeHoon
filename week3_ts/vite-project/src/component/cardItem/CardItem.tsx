@@ -10,6 +10,7 @@ import {
 
 import { scoreState, difficultyState } from "../../atoms/atom";
 import { useRecoilState, useRecoilValue } from "recoil";
+import React from "react";
 
 const Card = ({
   src,

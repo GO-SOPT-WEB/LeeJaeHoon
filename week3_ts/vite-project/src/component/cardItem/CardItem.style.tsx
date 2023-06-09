@@ -8,7 +8,7 @@ export const CardWrapper = styled.main`
   perspective: 550rem;
 `;
 
-export const CardInner = styled.section`
+export const CardInner = styled.section<{ flip: boolean }>`
   position: relative;
   width: 95%;
   height: 95%;
@@ -31,7 +31,6 @@ export const CardFrontBack = styled.div`
 `;
 
 export const CardFront = styled(CardFrontBack)`
-  background-image: url("${(props) => props && props.src}");
   background-repeat: no-repeat;
 
   transform: rotateY(180deg);

@@ -7,6 +7,7 @@ import styled from "styled-components";
 import ModalFrame from "./component/modal/ModalFrame";
 import { useRecoilValue, useRecoilState } from "recoil";
 import { scoreState, allCardState } from "./atoms/atom";
+import React from "react";
 const ResetButton = styled.button`
   position: fixed;
 
