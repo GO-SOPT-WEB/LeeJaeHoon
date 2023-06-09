@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { NavWrapper, DifficultyButton } from "./Nav.style";
-import { useSetRecoilState, useResetRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { difficultyState, scoreState, allCardState } from "../../atoms/atom";
 const Nav = ({}) => {
-  //: { onClickDifficulty: () => void }
-  const [selected, setSelected] = useState("Easy");
+  const [selected, setSelected] = useState<string>("Easy");
   const setDifficulty = useSetRecoilState(difficultyState);
   const setCorrect = useSetRecoilState(scoreState);
   const setAllCard = useSetRecoilState(allCardState);
-  const onClickDifficulty = (e) => {
-    setDifficulty(e.target.value);
 
-    switch (e.target.value) {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const value = (e.target as HTMLButtonElement).value;
+    setSelected(value);
+    setDifficulty(value);
+
+    switch (value) {
       case "Easy":
         setAllCard(5);
         setCorrect(0);
@@ -27,11 +29,6 @@ const Nav = ({}) => {
       default:
         break;
     }
-  };
-
-  const handleClick = (e) => {
-    setSelected(e.target.value);
-    onClickDifficulty(e);
   };
 
   return (

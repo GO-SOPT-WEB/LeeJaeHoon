@@ -10,7 +10,7 @@ export const NavWrapper = styled.nav`
   padding: 1rem;
 `;
 
-export const DifficultyButton = styled.button`
+export const DifficultyButton = styled.button<{ selected: boolean }>`
   width: 10rem;
   height: 3rem;
 
