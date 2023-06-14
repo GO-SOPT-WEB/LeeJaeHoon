@@ -18,11 +18,20 @@ imgInput.addEventListener("change", function () {
 });
 
 function submit() {
-  const book = {
-    bookname: document.getElementById("bookname").value,
-    hashtag: document.getElementById("hashtag").value,
-    bookImg: document.getElementById("bookImg").value,
-  };
+  const book = [];
+  const bookname = document.getElementById("bookname").value;
+  const hashtag = document.getElementById("hashtag").value;
+  const bookImg = document.getElementById("bookImg").value;
+  const category = document.getElementById("category").value;
+
+  book.push(bookname);
+  book.push(category);
+  book.push(hashtag);
+  book.push(bookImg);
+  console.log(book);
+  //   localStorage.setItem("bookname", book.bookname);
+  //   localStorage.setItem("hashtag", book.hashtag);
+  //   localStorage.setItem("bookImg", book.bookImg);
   localStorage.setItem("book", JSON.stringify(book));
 
   location.href = "./bookstore.html";

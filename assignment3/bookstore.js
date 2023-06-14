@@ -10,6 +10,22 @@ const checkWeb = document.querySelector(".web");
 const checkSelf = document.querySelector(".self");
 const checkNovel = document.querySelector(".novel");
 
+if (localStorage.getItem("book")) {
+  const newBook = localStorage.getItem("book");
+  //   console.log(JSON.parse(newBook));
+  const parseNewBook = JSON.parse(newBook);
+  console.log(parseNewBook);
+  if (parseNewBook) {
+    BookInfo.push({
+      title: parseNewBook[0],
+      category: parseNewBook[1],
+      hashtag: parseNewBook[1],
+      thumbup: false,
+      image: parseNewBook[2],
+    });
+  }
+  //
+}
 let filterBook = [];
 let render = 1;
 //filterBook을 렌더링하는 함수

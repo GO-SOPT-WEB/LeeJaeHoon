@@ -26,11 +26,19 @@
             <label for="bookname"> <p>책이름</p> </label>
             <input type="text" id="bookname" />
           </div>
-          <div>
+          <div class="inputWrapper">
+            <label for="category"><p>카테고리</p> </label>
+            <select id="category">
+              <option value="웹 개발서적">웹 개발서적</option>
+              <option value="자기개발서적">자기개발서적</option>
+              <option value="소설">소설</option>
+            </select>
+          </div>
+          <div class="inputWrapper">
             <label for="hashtag"><p>해쉬태그 (,로 구분)</p> </label>
             <input type="text" id="hashtag" />
           </div>
-          <div>
+          <div class="inputWrapper">
             <label for="bookImg"> <p>책 이미지</p> </label>
             <input
               class="imgInput"
