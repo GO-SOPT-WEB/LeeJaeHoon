@@ -3,7 +3,7 @@ import BookInfo from "./BookInfo.js";
 const bookList = document.querySelector(".section_ul");
 const categoryList = document.querySelector(".category_list");
 
-const checkedCategory = [];
+const checkedCategory = ["전체"];
 const checkboxes = document.querySelectorAll(".check_category");
 const checkAll = document.querySelector(".all");
 const checkWeb = document.querySelector(".web");
@@ -60,6 +60,7 @@ const renderBooks = (earlyData) => {
       });
 
       bookList.appendChild(bookItem);
+      bookList.classList.add("animation1");
     });
   } else {
     filterBook.forEach((book) => {
@@ -92,6 +93,7 @@ const renderBooks = (earlyData) => {
       });
 
       bookList.appendChild(bookItem);
+      bookList.classList.add("animation1");
     });
   }
 };
@@ -148,7 +150,7 @@ const filterBooks = (category) => {
     bookList.removeChild(bookList.firstChild);
   }
 
-  if (category.length === 0) {
+  if (category && category.length === 0) {
     while (bookList.firstChild) {
       bookList.removeChild(bookList.firstChild);
     }
@@ -204,5 +206,4 @@ checkboxes.forEach((checkbox) => {
 if (checkAll.value === "on" && render) {
   //   checkboxes[0] = 1;
   renderBooks(BookInfo);
-  renderCategory(["전체"]);
 }

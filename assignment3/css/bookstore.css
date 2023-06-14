@@ -142,6 +142,19 @@ nav {
   margin-right: 30px;
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+.animation1 {
+  animation: fadeIn 1s;
+}
 .section_ul {
   display: flex;
   flex-wrap: wrap;

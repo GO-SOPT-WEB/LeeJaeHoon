@@ -451,3 +451,11 @@ nav {
   animation-iteration-count: infinite;
   cursor: pointer;
 }
+
+/*
+.section_ul > & {
+  animation-name: fadeIn;
+  animation-duration: 3.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  /* animation-fill-mode: forwards; 애니메이션 완료 후 유지 */
