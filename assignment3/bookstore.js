@@ -111,6 +111,7 @@ const removeCategory = (categoryName, nav_category) => {
 //상단에 카테고리를 나열하는 함수
 const renderCategory = (checkedCategory) => {
   render = 0;
+  console.log(checkedCategory);
   checkedCategory.forEach((categoryName) => {
     const nav_category = document.createElement("li");
 
@@ -120,6 +121,7 @@ const renderCategory = (checkedCategory) => {
         <button type="button" class="nav_category_button"><img src="./images/x-button.png" alt="닫기버튼" width="10" /></button>
         `;
     categoryList.appendChild(nav_category);
+    console.log(categoryList);
     nav_category
       .querySelector(".nav_category_button")
       .addEventListener("click", () => {
@@ -163,7 +165,7 @@ const filterBooks = (category) => {
 
 //체크박스 변경시 카테고리 리스트를 렌더하고 book을 렌더하는 로직
 checkboxes.forEach((checkbox) => {
-  console.log("?");
+  console.log(checkbox);
   checkbox.addEventListener("change", () => {
     while (categoryList.firstChild) {
       categoryList.removeChild(categoryList.firstChild);
@@ -194,5 +196,7 @@ checkboxes.forEach((checkbox) => {
 console.log(checkAll.value);
 if (checkAll.value === "on" && render) {
   console.log("asd");
+  //   checkboxes[0] = 1;
   renderBooks(BookInfo);
+  renderCategory(["전체"]);
 }
