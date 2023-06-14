@@ -1,58 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="bookstore.css" />
-        <title>Jaehoon's bookstore</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
-        <script src="https://kit.fontawesome.com/8503511424.js" crossorigin="anonymous"></script>
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="bookstore.css" />
 
-    <body>
-        <header class="main__header">
-            <h2>재훈이의 책방 📚</h2>
-            <button type="button" class="header_button">
-                <img src="images/menu_burger_icon.svg" alt="메뉴버튼" />
-            </button>
-            <ul class="header_ul">
-                <h2>메뉴</h2>
-                <li class="header_li"><h3>새 상품 추가</h3></li>
+    <title>Jaehoon's bookstore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/8503511424.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-                <li class="header_li"><h3>찜 목록</h3></li>
-            </ul>
-        </header>
-        <nav>
-            <ul class="nav_ul">
-                <li class="nav_li">
-                    <input id="전체" type="checkbox" class="check_category all" /><label for="전체">전체 📕 </label>
-                </li>
-                <li class="nav_li">
-                    <input id="웹개발서적" type="checkbox" class="check_category web" /><label for="웹개발서적"
-                        >웹개발서적 📗</label
-                    >
-                </li>
-                <li class="nav_li">
-                    <input id="자기개발서적" type="checkbox" class="check_category self" /><label for="자기개발서적"
-                        >자기개발서적 📘</label
-                    >
-                </li>
-                <li class="nav_li">
-                    <input id="소설" type="checkbox" class="check_category novel" /><label for="소설">소설 📙</label>
-                </li>
-            </ul>
-        </nav>
-        <section class="nav_filter">
-            <ul class="category_list"></ul>
-        </section>
-        <section class="main_section">
-            <ul class="section_ul"></ul>
-        </section>
+  <body>
+    <header class="main__header">
+      <h2>재훈이의 책방 📚</h2>
+      <button type="button" class="header_button">
+        <img src="images/menu_burger_icon.svg" alt="메뉴버튼" />
+      </button>
+      <ul class="header_ul">
+        <h2>메뉴</h2>
+        <li class="header_li">
+          <a href="/addCard.html"><h3>새 상품 추가</h3></a>
+        </li>
 
-        <!-- <footer class="main__footer">
+        <li class="header_li"><h3>찜 목록</h3></li>
+      </ul>
+    </header>
+    <nav>
+      <ul class="nav_ul">
+        <li class="nav_li">
+          <input id="전체" type="checkbox" class="check_category all" /><label
+            for="전체"
+            >전체 📕
+          </label>
+        </li>
+        <li class="nav_li">
+          <input
+            id="웹개발서적"
+            type="checkbox"
+            class="check_category web"
+          /><label for="웹개발서적">웹개발서적 📗</label>
+        </li>
+        <li class="nav_li">
+          <input
+            id="자기개발서적"
+            type="checkbox"
+            class="check_category self"
+          /><label for="자기개발서적">자기개발서적 📘</label>
+        </li>
+        <li class="nav_li">
+          <input id="소설" type="checkbox" class="check_category novel" /><label
+            for="소설"
+            >소설 📙</label
+          >
+        </li>
+      </ul>
+    </nav>
+    <section class="nav_filter">
+      <ul class="category_list"></ul>
+    </section>
+    <section class="main_section">
+      <ul class="section_ul"></ul>
+    </section>
+
+    <!-- <footer class="main__footer">
             <ul>
                 <li>이용약관</li>
                 <li>개인정보처리방침</li>
@@ -61,7 +81,7 @@
             </ul>
             <p>주식회사 재훈이의 책방 대표자: 재훈이</p>
         </footer> -->
-    </body>
+  </body>
 
-    <script type="module" src="./bookstore.js"></script>
+  <script type="module" src="./bookstore.js"></script>
 </html>
