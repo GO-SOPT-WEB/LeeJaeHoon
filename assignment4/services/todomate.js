@@ -90,7 +90,7 @@ const createTodoList = () => {
     const plusImg = document.createElement("img");
 
     h2.textContent = todolist.title;
-    plusImg.src = "./image/plus_button.png";
+    plusImg.src = "./../image/plus_button.png";
     plusImg.classList.add("plusImgBtn");
     section.appendChild(h2);
     section.appendChild(plusImg);
