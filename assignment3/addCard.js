@@ -18,16 +18,14 @@ imgInput.addEventListener("change", function () {
 });
 
 function submit() {
-  // let bookname=document.getElementById("bookname").value;
-  // let hashtag=document.getElementById("hashtag").value;
-  // let bookImg=document.getElementById("hashtag").value;
-
   const book = {
     bookname: document.getElementById("bookname").value,
     hashtag: document.getElementById("hashtag").value,
-    bookImg: document.getElementById("hashtag").value,
+    bookImg: document.getElementById("bookImg").value,
   };
   localStorage.setItem("book", JSON.stringify(book));
+
+  location.href = "./bookstore.html";
 }
 
 let submitBtn = document.querySelector(".submit");
