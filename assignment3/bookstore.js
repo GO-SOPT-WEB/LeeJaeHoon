@@ -12,9 +12,9 @@ const checkNovel = document.querySelector(".novel");
 
 if (localStorage.getItem("book")) {
   const newBook = localStorage.getItem("book");
-  //   console.log(JSON.parse(newBook));
+
   const parseNewBook = JSON.parse(newBook);
-  console.log(parseNewBook);
+
   if (parseNewBook) {
     BookInfo.push({
       title: parseNewBook[0],
@@ -24,14 +24,12 @@ if (localStorage.getItem("book")) {
       image: parseNewBook[2],
     });
   }
-  //
 }
 let filterBook = [];
 let render = 1;
 //filterBook을 렌더링하는 함수
 const renderBooks = (earlyData) => {
   if (earlyData) {
-    console.log("초기렌더만해야함");
     earlyData.forEach((book) => {
       const bookItem = document.createElement("li");
       bookItem.classList.add("section_book", "pulse");
@@ -64,7 +62,6 @@ const renderBooks = (earlyData) => {
       bookList.appendChild(bookItem);
     });
   } else {
-    console.log("filterbook" + filterBook);
     filterBook.forEach((book) => {
       const bookItem = document.createElement("li");
       bookItem.classList.add("section_book", "pulse");
@@ -102,14 +99,13 @@ const renderBooks = (earlyData) => {
 //상단 카테고리 리스트를 삭제하는 함수
 const removeCategory = (categoryName, nav_category) => {
   const p = nav_category.querySelector("p");
-  console.log(categoryName, nav_category, p.textContent);
+
   if (p.textContent === categoryName) {
     nav_category.remove();
     const index = checkedCategory.indexOf(categoryName);
     if (index !== -1) {
       checkedCategory.splice(index, 1);
     }
-    console.log(checkedCategory);
     filterBooks(checkedCategory);
   }
 
@@ -127,7 +123,7 @@ const removeCategory = (categoryName, nav_category) => {
 //상단에 카테고리를 나열하는 함수
 const renderCategory = (checkedCategory) => {
   render = 0;
-  console.log(checkedCategory);
+
   checkedCategory.forEach((categoryName) => {
     const nav_category = document.createElement("li");
 
@@ -137,7 +133,7 @@ const renderCategory = (checkedCategory) => {
         <button type="button" class="nav_category_button"><img src="./images/x-button.png" alt="닫기버튼" width="10" /></button>
         `;
     categoryList.appendChild(nav_category);
-    console.log(categoryList);
+
     nav_category
       .querySelector(".nav_category_button")
       .addEventListener("click", () => {
@@ -160,7 +156,7 @@ const filterBooks = (category) => {
     renderBooks();
   } else {
     let all = false;
-    console.log(category.length);
+
     for (let i = 0; i < category.length; i++) {
       if (category[i] === "전체") {
         filterBook = BookInfo;
@@ -181,7 +177,6 @@ const filterBooks = (category) => {
 
 //체크박스 변경시 카테고리 리스트를 렌더하고 book을 렌더하는 로직
 checkboxes.forEach((checkbox) => {
-  console.log(checkbox);
   checkbox.addEventListener("change", () => {
     while (categoryList.firstChild) {
       categoryList.removeChild(categoryList.firstChild);
@@ -199,19 +194,14 @@ checkboxes.forEach((checkbox) => {
     }
 
     if (checkedCategory.length === 0) {
-      console.log("check");
       filterBooks();
     } else {
-      console.log("check");
-      console.log(checkedCategory);
       filterBooks(checkedCategory);
     }
   });
 });
 
-console.log(checkAll.value);
 if (checkAll.value === "on" && render) {
-  console.log("asd");
   //   checkboxes[0] = 1;
   renderBooks(BookInfo);
   renderCategory(["전체"]);
