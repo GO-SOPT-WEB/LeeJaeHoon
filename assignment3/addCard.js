@@ -27,10 +27,13 @@ function submit() {
     hashtag: document.getElementById("hashtag").value,
     bookImg: document.getElementById("hashtag").value,
   };
-  localStorage.setItem("book", book);
+  localStorage.setItem("book", JSON.stringify(book));
 }
 
 let submitBtn = document.querySelector(".submit");
 submitBtn.addEventListener("click", function () {
   submit();
 });
+// submitBtn.addEventListener("click", function () {
+//   location.href = "./bookstore.html";
+// });
