@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>addCard</title>
+    <link rel="stylesheet" href="./css/addCard.css" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/8503511424.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <main class="main">
+      <h2>책을 추가해주세요</h2>
+      <section class="main__section">
+        <form>
+          <div class="inputWrapper">
+            <label for="bookname"> <p>책이름</p> </label>
+            <input type="text" id="bookname" />
+          </div>
+          <div class="inputWrapper">
+            <label for="category"><p>카테고리</p> </label>
+            <select id="category">
+              <option value="웹 개발서적">웹 개발서적</option>
+              <option value="자기개발서적">자기개발서적</option>
+              <option value="소설">소설</option>
+            </select>
+          </div>
+          <div class="inputWrapper">
+            <label for="hashtag"><p>해쉬태그 (,로 구분)</p> </label>
+            <input type="text" id="hashtag" />
+          </div>
+          <div class="inputWrapper">
+            <label for="bookImg"> <p>책 이미지</p> </label>
+            <input
+              class="imgInput"
+              type="file"
+              accept="image/*"
+              id="bookImg"
+              alt="bookImg"
+            />
+          </div>
+          <div class="showImg" id="showImg"></div>
+          <!-- <button class="submit"><a href="bookstore.html">책 추가</a></button> -->
+          <button type="button" class="submit">책 추가</button>
+        </form>
+      </section>
+    </main>
+  </body>
+  <script type="module" src="./addCard.js"></script>
+</html>
